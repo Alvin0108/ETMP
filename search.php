@@ -1,3 +1,21 @@
+<?php
+	if(isset($_POST['search']))
+	{
+	}else{
+		$query = "SELECT * FROM 'info'";
+		$search_result = filter($query);
+		
+	}
+
+	function filter($query)
+	{
+		$conn = mysqli_connect("localhost","root","","portal_database");
+		$filter_data = mysqli_query($conn, $query);
+		return $filter_data;
+	}
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,9 +28,16 @@
             <input type="submit" name="search" value="Search"><br><br>
             <table>
                 <tr>
-                    <th>Training</th>
+					<th>Id</th>
+                    <th>Training Name</th>
                     <th>Information</th>
                 </tr>
+				<?php while($row = mysqli_fetch_array($search_result))?>
+					<tr>
+						<td><?php echo $row['id'];?></td>
+						<td><?php echo $row['Training Name'];?></td>
+						<td><?php echo $row['Information'];?></td>
+					</tr>
             </table>
         </form>       
     </body>
