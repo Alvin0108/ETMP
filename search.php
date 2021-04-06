@@ -10,7 +10,7 @@
             <input type="submit" name="search" value="Search"><br><br>
             <table>
                 <tr>
-                    <th>Training Name</th>
+                    <th>Training</th>
                     <th>Information</th>
                 </tr>
             </table>
