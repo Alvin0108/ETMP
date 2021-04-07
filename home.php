@@ -29,7 +29,9 @@ password  VARCHAR(20) NOT NULL
 );");
 mysqli_query($conn,"create table IF NOT EXISTS training (
 user_id INT NOT NULL,
-training_id INT NOT NULL,
+training_id VARCHAR(10) NOT NULL,
+training_name VARCHAR(20) NOT NULL,
+training_des VARCHAR(250),
 training_fee INT NOT NULL
 );");
 
@@ -37,15 +39,37 @@ $sql = "INSERT INTO users (user_name,user_email,password) VALUES ('Alvin','alvin
 $sql .= "INSERT INTO users (user_name,user_email,password) VALUES ('Gillian','gillian@yahoo.com','1111');";
 $sql .= "INSERT INTO users (user_name,user_email,password) VALUES ('Jack','jack@gmail.com','2222');";
 
+$train = "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('1','ID01','Programming','I am doing programming','1000');";
+$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('2','ID02','Engineering','I am doing engineering','2000');";
+$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('3','ID03','Cooking','I am doing cooking','500');";
 	
 $user = mysqli_query($conn, "Select * from users");
+$training = mysqli_query($conn, "Select * from training");
 
+if (mysqli_num_rows($training) <= 0) {
+	$result = mysqli_multi_query($conn, $train);
+	if($result != false)
+	{
+		echo "<h4>Training tables successfully created and populated</h4><br/>";
+	
+	}
+	else
+	{
+		echo "Error: " . $result . "<br>" . mysqli_error($conn). "<br>";
+	}
+}
+while ($row = mysqli_fetch_assoc($training)) {
+	echo "User ID : " . $row['user_id'] . "  Training ID : " . $row['training_id'] . " Training Name : " . $row['training_name'] . 
+	"   Training Description : " . $row['training_des'] . " Training Fee : " . $row['training_fee'] . "<br/>";
+}
+
+/*
 if (mysqli_num_rows($user) <= 0) {
 	$result = mysqli_multi_query($conn, $sql);
 	
 	if($result != false)
 	{
-		echo "<h4>Tables successfully created and populated</h4><br/>";
+		echo "<h4>User tables successfully created and populated</h4><br/>";
 	
 	}
 	else
@@ -58,7 +82,7 @@ while ($row = mysqli_fetch_assoc($user)) {
 	echo "ID : " . $row['user_id'] . "  Name : " . $row['user_name'] . "   Email : " . $row['user_email'] . "   Password : " . $row['password'] . "<br/>";
 }
 
-
+*/
 $database->close();
 $conn->close();
 ?>
