@@ -34,6 +34,13 @@ training_name VARCHAR(20) NOT NULL,
 training_des VARCHAR(250),
 training_fee INT NOT NULL
 );");
+mysqli_query($conn,"create table IF NOT EXISTS registration (
+register_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+user_id INT NOT NULL,
+training_id VARCHAR(10) NOT NULL,
+training_name VARCHAR(20) NOT NULL,
+register_date DATE NOT NULL
+);");
 
 $sql = "INSERT INTO users (user_name,user_email,password) VALUES ('Alvin','alvin@hotmail.com','0000');";
 $sql .= "INSERT INTO users (user_name,user_email,password) VALUES ('Gillian','gillian@yahoo.com','1111');";
@@ -42,12 +49,17 @@ $sql .= "INSERT INTO users (user_name,user_email,password) VALUES ('Jack','jack@
 $train = "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('1','ID01','Programming','I am doing programming','1000');";
 $train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('2','ID02','Engineering','I am doing engineering','2000');";
 $train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('3','ID03','Cooking','I am doing cooking','500');";
+
+$reg = "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID01','Programming','2020-12-05');";
+$reg .= "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID01','Programming','2020-12-10');";
+$reg .= "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID01','Programming','2021-2-3');";
 	
 $user = mysqli_query($conn, "Select * from users");
 $training = mysqli_query($conn, "Select * from training");
+$register = mysqli_query ($conn, "Select * from registration");
 
-if (mysqli_num_rows($training) <= 0) {
-	$result = mysqli_multi_query($conn, $train);
+if (mysqli_num_rows($register) <= 0) {
+	$result = mysqli_multi_query($conn, $reg);
 	if($result != false)
 	{
 		echo "<h4>Training tables successfully created and populated</h4><br/>";
@@ -58,9 +70,9 @@ if (mysqli_num_rows($training) <= 0) {
 		echo "Error: " . $result . "<br>" . mysqli_error($conn). "<br>";
 	}
 }
-while ($row = mysqli_fetch_assoc($training)) {
+while ($row = mysqli_fetch_assoc($register)) {
 	echo "User ID : " . $row['user_id'] . "  Training ID : " . $row['training_id'] . " Training Name : " . $row['training_name'] . 
-	"   Training Description : " . $row['training_des'] . " Training Fee : " . $row['training_fee'] . "<br/>";
+	"   Register Date : " . $row['register_date'] . "<br/>";
 }
 
 /*
@@ -80,6 +92,11 @@ if (mysqli_num_rows($user) <= 0) {
 
 while ($row = mysqli_fetch_assoc($user)) {
 	echo "ID : " . $row['user_id'] . "  Name : " . $row['user_name'] . "   Email : " . $row['user_email'] . "   Password : " . $row['password'] . "<br/>";
+}
+
+while ($row = mysqli_fetch_assoc($training)) {
+	echo "User ID : " . $row['user_id'] . "  Training ID : " . $row['training_id'] . " Training Name : " . $row['training_name'] . 
+	"   Training Description : " . $row['training_des'] . " Training Fee : " . $row['training_fee'] . "<br/>";
 }
 
 */
