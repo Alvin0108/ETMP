@@ -46,9 +46,11 @@ $sql = "INSERT INTO users (user_name,user_email,password) VALUES ('Alvin','alvin
 $sql .= "INSERT INTO users (user_name,user_email,password) VALUES ('Gillian','gillian@yahoo.com','1111');";
 $sql .= "INSERT INTO users (user_name,user_email,password) VALUES ('Jack','jack@gmail.com','2222');";
 
-$train = "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('1','ID01','Programming','I am doing programming','1000');";
-$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('2','ID02','Engineering','I am doing engineering','2000');";
-$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('3','ID03','Cooking','I am doing cooking','500');";
+$train = "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('1','ID01','Java Programming','Learn basic Java','200');";
+$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('2','ID02','Python Programming','Learn how to use python','200');";
+$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('3','ID03','Engineering','Basic information of engineering','2000');";
+$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('4','ID04','Cooking','Cooking Sunday','500');";
+$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('5','ID05','Leadership Skill','Time to lead your own company','500');";
 
 $reg = "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID01','Programming','2020-12-05');";
 $reg .= "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID01','Programming','2020-12-10');";
@@ -58,6 +60,20 @@ $user = mysqli_query($conn, "Select * from users");
 $training = mysqli_query($conn, "Select * from training");
 $register = mysqli_query ($conn, "Select * from registration");
 
+if (mysqli_num_rows($training) <= 0) {
+	$result = mysqli_multi_query($conn, $train);
+	if($result != false)
+	{
+		echo "<h4>Training tables successfully created and populated</h4><br/>";
+	
+	}
+	else
+	{
+		echo "Error: " . $result . "<br>" . mysqli_error($conn). "<br>";
+	}
+}
+
+/*
 if (mysqli_num_rows($register) <= 0) {
 	$result = mysqli_multi_query($conn, $reg);
 	if($result != false)
@@ -75,7 +91,7 @@ while ($row = mysqli_fetch_assoc($register)) {
 	"   Register Date : " . $row['register_date'] . "<br/>";
 }
 
-/*
+
 if (mysqli_num_rows($user) <= 0) {
 	$result = mysqli_multi_query($conn, $sql);
 	
