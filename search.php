@@ -22,31 +22,33 @@
 <html>
     <head>
 		<meta charset="utf-8" />
-		<meta name="description" content="Expert.com" />
+		<meta name="description" content="DP2" />
 		<meta name="keywords" content="PHP" />
-		<meta name="author" content="Alvin Chua" />
+		<meta name="author" content="Alvin Chua Khai Chuen" />
 		<link rel="stylesheet" href="style.css">
 		<title>Search</title>
     </head>
     <body>
         
-        <form action="search.php" method="post">
-            <input type="text" name="training_search" placeholder="What are you looking for?"><br><br>
+        <form action="search.php" method="post" class="search">
+            <input type="text" name="training_search" placeholder="What are you looking for?">
             <input type="submit" name="search" value="Search"><br><br>
-            <table>
+        </form>   
+            <table class="center">
                 <tr>
 					<th>Id</th>
                     <th>Training Name</th>
                     <th>Information</th>
+					<th>Fee</th>
                 </tr>
 				<?php while($row = mysqli_fetch_array($search_result)):?>
 					<tr>
 						<td><?php echo $row['training_id'];?></td>
 						<td><?php echo $row['training_name'];?></td>
 						<td><?php echo $row['training_des'];?></td>
+						<td><?php echo "RM ".$row['training_fee'];?></td>
 					</tr>
 				<?php endwhile;?>
-            </table>
-        </form>       
+            </table>		
     </body>
 </html>
