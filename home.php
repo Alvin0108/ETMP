@@ -16,6 +16,7 @@
 <h1>Expert Training Management Portal</h1>
 
 <?php
+
 $database = mysqli_connect("localhost","root","");
 mysqli_query($database, "CREATE DATABASE IF NOT EXISTS portal_database"); // Create database if not exists
 
@@ -52,9 +53,9 @@ $train .= "INSERT INTO training (user_id, training_id, training_name, training_d
 $train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('4','ID04','Cooking','Cooking Sunday','500');";
 $train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('5','ID05','Leadership Skill','Time to lead your own company','500');";
 
-$reg = "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID01','Programming','2020-12-05');";
-$reg .= "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID01','Programming','2020-12-10');";
-$reg .= "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID01','Programming','2021-2-3');";
+$reg = "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID01','Java Programming','2020-12-05');";
+$reg .= "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID02','Python Programming','2020-12-10');";
+$reg .= "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('2','ID03','Engineering','2021-2-3');";
 	
 $user = mysqli_query($conn, "Select * from users");
 $training = mysqli_query($conn, "Select * from training");
@@ -116,8 +117,10 @@ while ($row = mysqli_fetch_assoc($training)) {
 }
 
 */
+
 $database->close();
 $conn->close();
+
 ?>
 
 
