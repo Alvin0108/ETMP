@@ -25,14 +25,20 @@
 		<meta name="description" content="DP2" />
 		<meta name="keywords" content="PHP" />
 		<meta name="author" content="Alvin Chua Khai Chuen" />
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="style/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<title>Search</title>
     </head>
-    <body>
-        
+	<header>
+	<!--navigation-->
+	<?php include "navigation.php";?>
+
+	</header>
+    <body>   
+		<br><br>
         <form action="search.php" method="post" class="search">
-            <input type="text" name="training_search" placeholder="What are you looking for?">
-            <input type="submit" name="search" value="Search"><br><br>
+            <input type="text" name="training_search" placeholder="Search...">
+			<button type="submit" name="search"><i class="fa fa-search"></i></button><br><br>
         </form>   
             <table class="center">
                 <tr>
@@ -49,6 +55,6 @@
 						<td><?php echo "RM ".$row['training_fee'];?></td>
 					</tr>
 				<?php endwhile;?>
-            </table>		
+            </table>	
     </body>
 </html>
