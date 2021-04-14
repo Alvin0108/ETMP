@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title> ETMP Registration </title>
+	<meta charset ="utf-8">
+	<meta name="author" content="Gillian Tan">
+	<meta name="descrtiption" content="ETMP registration">
+	<meta name="keywords" content="ETMP, account registration">
+	
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus{
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+
+</style>
+
+</head>
+
+
+	<body>
+
+	<?php
+	// Create database if not exists
+	$database = mysqli_connect("localhost","root","");
+	mysqli_query($database, "CREATE DATABASE IF NOT EXISTS portal_database"); 
+	
+	//declare variables
+	$name = $email = $client-category = $password = $repeat = "";
+	
+	if ($_SERVER["REQUEST_METHOD"]=="POST"){
+		$name = test_input($_POST["name"]);
+		$email = test_input($_POST["email"]);
+		$client-category = test_input($_POST["client-category"]);
+		$password = test_input($_POST["password"]);
+		$repeat = test_input($_POST["repeat"]);
+	}
+	
+	function test_input($data){
+		$data = trim($data);
+		$data = striplashes($data);
+		$data = htmlspeacialchars($data);
+		return $data;
+	}
+	?>
+	
+	<!-- registration form -->
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>
+		<div class="container">
+			<h1>Sign Up</h1>
+
+			<hr>
+
+			<input type="radio" name="client-category" value="individual" required> Individual</input>
+			<input type="radio" name="client-category" value="company" required>Company</input>
+		
+			<br><br><label for="name"><b>Name</b></label>
+			<input type="text" placeholder="Enter Name" name="name" id="name" required>
+	
+			<label for="email"><b>Email</b></label>
+			<input type="email" placeholder="Enter Email" name="email" id="email" required>
+
+			<label for="pass"><b>Password</b></label>
+			<input type="password" placeholder="Enter Password" name="pass" id="pass" required>
+
+			<label for="repeat"><b>Repeat Password</b></label>
+			<input type="password" placeholder="Repeat Password" name="repeat" id="repeat" required>
+			<hr>
+			<p>By creating an account, you are agreeing to our <a href="#">Terms & Conditions</a>.</p>
+
+			<button type="submit" class="registerbtn">Register</button>
+		</div>
+	</form>
+
+	</body>
+</html>
