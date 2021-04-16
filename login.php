@@ -7,75 +7,45 @@
 	<meta name="author" content="Gillian Tan">
 	<meta name="descrtiption" content="ETMP login">
 	<meta name="keywords" content="ETMP, login">
+	<link rel="stylesheet" href="style/style.css">
 </head>
-
-<style>
-
-	body {
-		font-family: Arial, Helvetica, sans-serif;
-		}
-		
-	/* Full-width input fields */
-	input[type=password],input[type=email] {
-		width: 100%;
-		padding: 15px;
-		margin: 5px 0 22px 0;
-		display: inline-block;
-		border: none;
-		background: #f1f1f1;
-		}
-
-	input[type=password]:focus, input[type=email]:focus{
-		background-color: #ddd;
-		outline: none;
-		}
-
-	/* Overwrite default styles of hr */
-	hr {
-		border: 1px solid #f1f1f1;
-		margin-bottom: 25px;
-		}
-
-	/* Set a style for the submit button */
-	.loginbtn {
-		background-color: #4CAF50;
-		color: white;
-		padding: 16px 20px;
-		margin: 8px 0;
-		border: none;
-		cursor: pointer;
-		width: 100%;
-		opacity: 0.9;
-		}
-
-	.loginbtn:hover {
-		opacity: 1;
-	}
-
-
-</style>
 
 <body>
 
-	<?php
-	//declare variables
-	$email = $password = "";
+<?php 
+session_start();
+$email = $password = "";
+$errEmail = $errPass = "";
+if(isset($_POST['login'])) {		
+	$email = $_POST['email'];
+	$password = $_POST["pass"];
+	$conn = mysqli_connect("localhost","root","","portal_database");		// Connect to database
+	$query= "SELECT * FROM users WHERE user_email='$email'";	// Check if email exist in database
+	$results= mysqli_query($conn, $query);
+	$row = mysqli_fetch_assoc($results);		
 	
-	if ($_SERVER["REQUEST_METHOD"]=="POST"){
-		$email = test_input($_POST["email"]);
-		$password = test_input($_POST["password"]);
+	if((mysqli_num_rows($results)) > 0) {			// Check if email exist in database
+		if( $row['password']==$password)			// Check if password is match
+		{
+			// Saving important data into Session
+			$_SESSION["user_name"] = $row["user_name"];
+			$_SESSION["user_id"] = $row["user_id"];
+			$_SESSION["user_email"] = $row["user_email"];
+			header("Location: search.php");	
+		}
+		else
+		{
+			$errPass = "Password not correct";
+		}
+	}	
+	else
+	{
+		$errEmail =  "Email not found";
 	}
-	
-	function test_input($data){
-		$data = trim($data);
-		$data = striplashes($data);
-		$data = htmlspeacialchars($data);
-		return $data;
-	}
-	?>
+}
+?>
 
-	
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>
+	<form action="login.php" method="post">
 		<!-- login form -->
 		<div class="container">
 			<h1>Log in</h1>
@@ -83,20 +53,17 @@
 			<hr>
 	
 			<label for="email"><b>Email</b></label>
-			<input type="email" placeholder="Enter Email" name="email" id="email" required>
+			<input type="email" placeholder="Enter Email" name="email" id="email" required><?php echo $errEmail ?><br> 
 
 			<label for="pass"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="pass" id="pass" required>
+			<input type="password" placeholder="Enter Password" name="pass" id="pass" required><?php echo $errPass ?>
 
 			<hr>
 			<p><a href="#">Forgot password</a>.</p>
 
-			<button type="submit" class="loginbtn">Log In</button>
+			<button type="submit" class="loginbtn" name="login">Log In</button>
 		</div>
 	</form>
-
-
-
 
 </body>
 </html>

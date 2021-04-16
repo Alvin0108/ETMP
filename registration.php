@@ -7,89 +7,97 @@
 	<meta name="author" content="Gillian Tan">
 	<meta name="descrtiption" content="ETMP registration">
 	<meta name="keywords" content="ETMP, account registration">
-	
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-
-/* Full-width input fields */
-input[type=text], input[type=password],input[type=email] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-input[type=text]:focus, input[type=password]:focus, input[type=email]:focus{
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
-/* Set a style for the submit button */
-.registerbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.registerbtn:hover {
-  opacity: 1;
-}
-
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
-
-
-</style>
-
+	<link rel="stylesheet" href="style/style.css">
 </head>
 
-
 	<body>
-
-	<?php
-	// Create database if not exists
-	$database = mysqli_connect("localhost","root","");
-	mysqli_query($database, "CREATE DATABASE IF NOT EXISTS portal_database"); 
-	
+<?php
 	//declare variables
-	$name = $email = $client-category = $password = $repeat = "";
+	$name = $email = $client_category = $password = $repeat = "";
+	$nameer = $emailer = $passer = $confirmer = "";
+	$invalid = true;
 	
-	if ($_SERVER["REQUEST_METHOD"]=="POST"){
-		$name = test_input($_POST["name"]);
-		$email = test_input($_POST["email"]);
-		$client-category = test_input($_POST["client-category"]);
-		$password = test_input($_POST["password"]);
-		$repeat = test_input($_POST["repeat"]);
+	$conn = mysqli_connect("localhost","root","","portal_database");		// Connect to database
+if(isset($_POST["register_acc"])) {  
+	$nameer = NameCheck();							// Checking name input
+	$emailer = EmailCheck();							// Checking email input
+	$passer = PasswordCheck();							// Checking password input
+	$confirmer = ConfirmCheck();						// Checking confirm password input
+	if($nameer=="" && $emailer=="" && $passer=="" && $confirmer=="")		// If the string is empty then it mean no error
+	{	
+		$name = $_POST["name"];
+		$email = $_POST["email"];
+		$pass = $_POST["pass"];
+		
+		// Insert the record
+		$adding= "INSERT INTO users (user_name, user_email, password) VALUES 
+		('$name','$email','$pass');";
+		$queryResult=mysqli_query($conn,$adding);
+		$query = "SELECT * FROM users WHERE user_email='$email'";	// Check if the the email exist in the database
+		$results= mysqli_query($conn, $query);
+		$row = mysqli_fetch_assoc($results);
+		$_SESSION["user_name"] = $name;			// Assign the Session variable so the page it direct can recieve the info
+		$_SESSION["user_id"] = $row["user_id"];
+		mysqli_close($conn);
+		header("Location: login.php");
+		exit();
 	}
-	
-	function test_input($data){
-		$data = trim($data);
-		$data = striplashes($data);
-		$data = htmlspeacialchars($data);
-		return $data;
+	else{
+		$invalid = false;
 	}
-	?>
+	$nameinput = $_POST["name"];		// It would save the latest name and email input of the user
+	$emailinput = $_POST["email"];
+}
+
+function NameCheck()
+{
+	$name = $_POST["name"];
+	if (!preg_match ("/^[a-zA-Z\s]+$/",$name)){			// Checking the name format, it can only contain letter
+		return "Name can only contain letter ";
+	}
+		
 	
+}
+
+function EmailCheck()
+{
+	$email = $_POST["email"];
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {		// Check email input, it must fit the standard email format
+      return "Invalid email format ";
+	}
+	else {
+		$mysqli = mysqli_connect("localhost","root","","portal_database");
+		$query= "SELECT * FROM users WHERE user_email='$email'";
+		$results= mysqli_query($mysqli, $query);
+		// Checking if the same email already exist in the database
+		if((mysqli_num_rows($results))>0)
+		{
+			return "The input mail already exist";
+		}
+	}
+}
+
+function PasswordCheck()
+{
+	$pass = $_POST["pass"];
+	if (preg_match('/^[a-zA-Z0-9]+/', $pass) == false) {	// Check password input, it must only contain letters and numbers
+      return "Invalid Password format";
+	}
+}
+
+function ConfirmCheck()
+{	// Checking if teh confirm password input is exactly match the password input
+	$confirm = $_POST["repeat"];
+	$pass = $_POST["pass"];
+	if ($confirm != $pass)
+	{
+		return "The confirm password and the password does not match";
+	}
+}
+
+?>
 	<!-- registration form -->
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>
+	<form action="registration.php" method="post">
 		<div class="container">
 			<h1>Sign Up</h1>
 
@@ -99,22 +107,21 @@ a {
 			<input type="radio" name="client-category" value="company" required>Company</input>
 		
 			<br><br><label for="name"><b>Name</b></label>
-			<input type="text" placeholder="Enter Name" name="name" id="name" required>
+			<input type="name" placeholder="Enter Name" name="name" id="name" required><span style="color:red"><?php echo $nameer ?></span><br>
 	
 			<label for="email"><b>Email</b></label>
-			<input type="email" placeholder="Enter Email" name="email" id="email" required>
+			<input type="email" placeholder="Enter Email" name="email" id="email" required><span style="color:red"><?php echo $emailer ?></span><br>
 
 			<label for="pass"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="pass" id="pass" required>
+			<input type="password" placeholder="Enter Password" name="pass" id="pass" required><span style="color:red"><?php echo $passer ?></span><br>
 
 			<label for="repeat"><b>Repeat Password</b></label>
-			<input type="password" placeholder="Repeat Password" name="repeat" id="repeat" required>
+			<input type="password" placeholder="Repeat Password" name="repeat" id="repeat" required><span style="color:red"><?php echo $confirmer ?></span><br>
 			<hr>
 			<p>By creating an account, you are agreeing to our <a href="#">Terms & Conditions</a>.</p>
 
-			<button type="submit" class="registerbtn">Register</button>
+			<button type="submit" class="registerbtn" name="register_acc">Register</button>
 		</div>
 	</form>
-
 	</body>
 </html>
