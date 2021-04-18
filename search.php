@@ -1,3 +1,11 @@
+<?php 
+session_start();
+$user_email = $user_ID = "";
+$user_email = $_SESSION["user_email"];
+$user_ID = $_SESSION["user_id"];
+
+?>
+
 <!--search training with filter function-->
 <?php
 	$training_search = "";
