@@ -13,9 +13,8 @@
 	<body>
 <?php
 	//declare variables
-	$name = $email = $client_category = $password = $repeat = "";
+	$name = $email = $client_category = $pass = $repeat = "";
 	$nameer = $emailer = $passer = $confirmer = "";
-	$invalid = true;
 	
 	$conn = mysqli_connect("localhost","root","","portal_database");		// Connect to database
 if(isset($_POST["register_acc"])) {  
@@ -36,17 +35,12 @@ if(isset($_POST["register_acc"])) {
 		$query = "SELECT * FROM users WHERE user_email='$email'";	// Check if the the email exist in the database
 		$results= mysqli_query($conn, $query);
 		$row = mysqli_fetch_assoc($results);
-		$_SESSION["user_name"] = $name;			// Assign the Session variable so the page it direct can recieve the info
+		// Assign the Session variable so the page it direct can recieve the info
+		$_SESSION["user_name"] = $row["user_name"];
 		$_SESSION["user_id"] = $row["user_id"];
-		mysqli_close($conn);
-		header("Location: login.php");
-		exit();
+		$_SESSION["user_email"] = $row["user_email"];
+		header("Location: add_personal_detail.php");
 	}
-	else{
-		$invalid = false;
-	}
-	$nameinput = $_POST["name"];		// It would save the latest name and email input of the user
-	$emailinput = $_POST["email"];
 }
 
 function NameCheck()
@@ -103,8 +97,8 @@ function ConfirmCheck()
 
 			<hr>
 
-			<input type="radio" name="client-category" value="individual" required> Individual</input>
-			<input type="radio" name="client-category" value="company" required>Company</input>
+			<input type="radio" name="client_category" value="individual" required> Individual</input>
+			<input type="radio" name="client_category" value="company" required>Company</input>
 		
 			<br><br><label for="name"><b>Name</b></label>
 			<input type="name" placeholder="Enter Name" name="name" id="name" required><span style="color:red"><?php echo $nameer ?></span><br>

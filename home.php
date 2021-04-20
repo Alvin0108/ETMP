@@ -6,17 +6,20 @@
 <meta name="description" content="Web application development" />
 <meta name="keywords" content="PHP" />
 <meta name="author" content="Tay Yuan Long" />
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style/style.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>Home Page</title>
 </head>
 
 <body>
-
-<h1>Sprint 1</h1> 
-<h1>Expert Training Management Portal</h1>
+<br/><br/>
+<h1>Welcome to <br/>Expert Training Portal</h1>
+<br/><br/>
+<div class="center">
+	<a href="login.php"><button class="button user" >Login as user</button></a>
+</div>
 
 <?php
-
 $database = mysqli_connect("localhost","root","");
 mysqli_query($database, "CREATE DATABASE IF NOT EXISTS portal_database"); // Create database if not exists
 
@@ -43,9 +46,9 @@ training_name VARCHAR(20) NOT NULL,
 register_date DATE NOT NULL
 );");
 
-$sql = "INSERT INTO users (user_name,user_email,password) VALUES ('Alvin','alvin@hotmail.com','0000');";
-$sql .= "INSERT INTO users (user_name,user_email,password) VALUES ('Gillian','gillian@yahoo.com','1111');";
-$sql .= "INSERT INTO users (user_name,user_email,password) VALUES ('Jack','jack@gmail.com','2222');";
+$sql = "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Alvin','alvin@hotmail.com','0000');";
+$sql .= "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Gillian','gillian@yahoo.com','1111');";
+$sql .= "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Jack','jack@gmail.com','2222');";
 
 $train = "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('1','ID01','Java Programming','Learn basic Java','200');";
 $train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('2','ID02','Python Programming','Learn how to use python','200');";
@@ -92,24 +95,6 @@ while ($row = mysqli_fetch_assoc($register)) {
 	"   Register Date : " . $row['register_date'] . "<br/>";
 }
 
-
-if (mysqli_num_rows($user) <= 0) {
-	$result = mysqli_multi_query($conn, $sql);
-	
-	if($result != false)
-	{
-		echo "<h4>User tables successfully created and populated</h4><br/>";
-	
-	}
-	else
-	{
-		echo "Error: " . $query . "<br>" . mysqli_error($conn). "<br>";
-	}
-}
-
-while ($row = mysqli_fetch_assoc($user)) {
-	echo "ID : " . $row['user_id'] . "  Name : " . $row['user_name'] . "   Email : " . $row['user_email'] . "   Password : " . $row['password'] . "<br/>";
-}
 
 while ($row = mysqli_fetch_assoc($training)) {
 	echo "User ID : " . $row['user_id'] . "  Training ID : " . $row['training_id'] . " Training Name : " . $row['training_name'] . 

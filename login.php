@@ -59,6 +59,7 @@ if(isset($_POST['login'])) {
 			<input type="password" placeholder="Enter Password" name="pass" id="pass" required><?php echo $errPass ?>
 
 			<hr>
+			<p><a href="registration.php">Register new account</a>.</p>
 			<p><a href="#">Forgot password</a>.</p>
 
 			<button type="submit" class="loginbtn" name="login">Log In</button>
