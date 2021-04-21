@@ -24,7 +24,7 @@ if(isset($_POST["confirm"])) {
 		$conn = mysqli_connect("localhost","root","","portal_database");
 		$add= "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('$user_ID','$tid','$tname','$date')";
 		$queryResult = mysqli_query($conn,$add);
-		$user_training_check = "You success register ";
+		$user_training_check = "<span style='color:green'>You success register </span>";
 	}
 }
 
@@ -38,7 +38,7 @@ function TrainingCheck()
 	// Checking if the same same user register same training again
 	if((mysqli_num_rows($results))>0)
 	{
-			return "You had registered ";
+			return "<span style='color:red'>You had registered </span>";
 	}
 }
 
