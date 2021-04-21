@@ -31,8 +31,9 @@ if(isset($_POST["confirm"])) {
 function TrainingCheck()
 {
 	$tid = $_SESSION["tid"];
+	$user_ID = $_SESSION["user_id"];
 	$mysqli = mysqli_connect("localhost","root","","portal_database");
-	$query= "SELECT * FROM registration WHERE training_id='{$tid}'";
+	$query= "SELECT * FROM registration WHERE user_id='$user_ID' AND training_id='$tid'";
 	$results= mysqli_query($mysqli, $query);
 	// Checking if the same same user register same training again
 	if((mysqli_num_rows($results))>0)
