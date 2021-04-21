@@ -29,7 +29,9 @@ mysqli_query($conn, "create table IF NOT EXISTS users (
 user_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 user_name VARCHAR(20) NOT NULL,
 user_email VARCHAR(50) NOT NULL,
-password  VARCHAR(20) NOT NULL
+password  VARCHAR(20) NOT NULL,
+description VARCHAR(50) NOT NULL,
+gender VARCHAR(50) NOT NULL
 );");
 mysqli_query($conn,"create table IF NOT EXISTS training (
 user_id INT NOT NULL,
@@ -46,9 +48,9 @@ training_name VARCHAR(20) NOT NULL,
 register_date DATE NOT NULL
 );");
 
-$sql = "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Alvin','alvin@hotmail.com','0000');";
-$sql .= "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Gillian','gillian@yahoo.com','1111');";
-$sql .= "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Jack','jack@gmail.com','2222');";
+//$sql = "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Alvin','alvin@hotmail.com','0000');";
+//$sql .= "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Gillian','gillian@yahoo.com','1111');";
+//$sql .= "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Jack','jack@gmail.com','2222');";
 
 $train = "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('1','ID01','Java Programming','Learn basic Java','200');";
 $train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('2','ID02','Python Programming','Learn how to use python','200');";
