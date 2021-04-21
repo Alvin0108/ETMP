@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$user_email = $user_ID = "";
+$user_email = $user_ID = $user_name = "";
 $user_email = $_SESSION["user_email"];
 $user_ID = $_SESSION["user_id"];
 $user_name = $_SESSION["user_name"];
@@ -18,30 +18,22 @@ $user_name = $_SESSION["user_name"];
 </head>
 	<body>
 	<?php
+	//Declare variable
+	$desc = $gender = "";
 	if(isset($_POST['add_info'])) {		
-	$email = $_POST['email'];
 	$desc = $_POST['desc'];
 	$gender = $_POST['gender'];
 	$conn = mysqli_connect("localhost","root","","portal_database");		// Connect to database
-//	
-//	$sql = "UPDATE users SET description='".$desc."',gender='".$gender."' WHERE user_email=".$email;
-//	$queryResult=mysqli_query($conn,$sql);
 	
-	$query= "SELECT * FROM users WHERE user_email='$email'";	// Check if email exist in database
-	$results= mysqli_query($conn, $query);
-	$row = mysqli_fetch_assoc($results);	
+	$sql = "UPDATE users SET description='$desc', gender='$gender' WHERE user_email='$user_email'";
+	$queryResult=mysqli_query($conn,$sql);	
 	
-
-	// Saving important data into Session
-	$_SESSION["user_name"] = $row["user_name"];
-	$_SESSION["user_id"] = $row["user_id"];
-	$_SESSION["user_email"] = $row["user_email"];
 	header("Location: search.php");
 }
 	
 	?>
 	
-	<!-- registration form -->
+	<!-- add info form -->
 	<form action="add_personal_detail.php" method="post">
 		<div class="container">
 			<h1>Personal Detail</h1>
@@ -54,7 +46,7 @@ $user_name = $_SESSION["user_name"];
 			<label for="email"><b>Email</b></label>
 			<input type="email" name="email" id="email" value="<?php echo $user_email?>" disabled><br>
 
-			<label for="text"><b>Description</b></label>
+			<label for="text"><b>About yourself</b></label>
 			<input type="text" placeholder="Enter some descrtiption..." name="desc" id="desc" required /><br><br>
 			
 			<label for="gender"><b>Gender</b></label><br/>
