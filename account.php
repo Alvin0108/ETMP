@@ -29,7 +29,7 @@ if(isset($_POST["register_acc"])) {
 		$name = $_POST["name"];
 		$sql = "UPDATE users SET user_name='$name' WHERE user_email='$email'";
 		if (mysqli_query($conn, $sql)) {
-		  echo "Record updated successfully";
+		  header("Location: profile.php");
 		} else {
 		  echo "Error updating record: " . mysqli_error($conn);
 		}
@@ -39,7 +39,7 @@ if(isset($_POST["register_acc"])) {
 		$pass = $_POST["pass"];
 		$sql = "UPDATE users SET password='$pass' WHERE user_email='$email'";
 		if (mysqli_query($conn, $sql)) {
-		  echo "Record updated successfully";
+		  header("Location: profile.php");
 		} else {
 		  echo "Error updating record: " . mysqli_error($conn);
 		}
@@ -93,8 +93,6 @@ function PasswordCheck()
 
 			<hr>
 
-			<input type="radio" name="client-category" value="individual" required> Individual</input>
-			<input type="radio" name="client-category" value="company" required>Company</input>
 			
 			<br><br><label for="email"><b>Email</b></label>
 			<input type="email" placeholder="Enter Email" name="email" id="email" required><span style="color:red"><?php echo $emailer ?></span><br>
