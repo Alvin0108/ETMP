@@ -12,6 +12,7 @@
 
 	<body>
 <?php
+session_start();
 	//declare variables
 	$name = $email = $client_category = $pass = $repeat = "";
 	$nameer = $emailer = $passer = $confirmer = "";
