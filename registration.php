@@ -10,7 +10,35 @@
 	<link rel="stylesheet" href="style/style.css">
 </head>
 
-	<body>
+<header>
+		
+	<!-- ETMP logo -->	
+	<img src="image/logo.png" alt="logo" class ="logo" width=10% height=auto>
+	
+	
+	<nav class="topnav">
+	<ul class="nav-links">
+            <li>
+                <a class="nav-link" href="homepage.html">Home</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#">Training</a>
+            </li>
+			<li>
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li>
+                <a class="nav-link" href="login.php">Sign In</a>
+            </li>
+        </ul>
+	</nav>
+	<a class="nav-link-active" href="registration.html"><button class="create-button">Create Account</button></a>
+
+
+
+</header>
+
+<body>
 <?php
 session_start();
 	//declare variables

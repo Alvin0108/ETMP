@@ -3,16 +3,17 @@
 <head>
 	<title>Expert Training Management Portal</title>
 	<meta charset="utf-8" />
-	<link rel='stylesheet' type='text/css' href='style.css'/>
+	<link rel='stylesheet' type='text/css' href='style/style.css'/>
 	<!--no script.js-->
 </head>
 <!--header-->
 <header>
-<h1>Welcome to Expert Training Management Portal</h1>
 
-<nav>
-	<a href="index.html">Home</a>
-	<div class="subnav">
+	<!-- ETMP logo -->	
+	<img src="image/logo.png" alt="logo" class ="logo" width=10% height=auto>
+	
+	
+	<nav class="topnav">
 	<!--to be confirm
 		<button class="subnavbtn">About Us <i class="fa fa-caret-down"></i></button>
 			<div class="subnav-content">
@@ -25,7 +26,23 @@
 		<a href="enquiry.html">Enquiry</a>
 		<a href="disclaimer.html">Disclaimer/Copyright</a>
 		-->
-</nav>
+		
+		<ul class="nav-links">
+            <li>
+                <a class="nav-link-acive" href="homepage.html">Home</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#">Training</a>
+            </li>
+			<li>
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li>
+                <a class="nav-link" href="login.php">Sign In</a>
+            </li>
+        </ul>
+	</nav>
+	<a class="nav-link" href="registration.html"><button class="create-button">Create Account</button></a>
 
 </header>
 
@@ -79,69 +96,120 @@ $database->close();
 $conn->close();
 ?>
 	
-<img src="image/picture.png" class="picture" height="800" width="1550" alt="picture"/>
-
-</br>
-</br>
-
-<p>Expert Training Management Portal is a website that provides in-house training for companies or 
-employees within Sarawak, providing hands-on solutions through practical information to solve the 
-business challenge and develop human capitals that meet the company’s needs. The operation team will 
-search for related training when receiving requests from the registered client. The operation team will 
-contact the client when training matches the request. Client's request will be terminated if he/she does 
-not reply within a week. The client is able to choose alternative training if he/she is not satisfied 
-with the alternatives given. After an alternative has been chosen, the operations team will fill the 
-client in with more information about the training, client may have additional requests or modifications 
-to the training after payment is successful. The client will receive notification when the training is 
-confirmed, training documents will be sent to the client one week before training starts. Training can 
-be cancelled at any time with no refund. Clients may also have a real-time consultation with the live 
-chat function if they have any doubts or problems.</p>
-</br>
-</br>
-</br>	
-
-<!--footer-->
-<footer>
-<div class="f_main">
-	<div class="f_inner">
-	<div class="f_left">
-		<div class="f_box">
-		<h6>Company</h6>
-		<ul>
-			<li><a href="index.html"><i class="fa fa-star"></i>About Us</a></li>
-			<li><a href="enquiry.html"><i class="fa fa-envelope"></i>Enquiry</a></li>
-			<li><a href="disclaimer.html"><i class="fa fa-copyright"></i>Disclaimer/Copyright</a></li>
-		</ul>
+	<hr>
+	<div class="banner-main">
+		<div class="text-bg">
+			<!-- search container -->
+			<div class="search">
+				<br>
+				<h1>Your Vision. Our Best Service</h1>
+				<span>Since 2010</span>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
+				<!-- link to search training page -->
+				<a href="#">Get Started</a>
+			</div>
 		</div>
-		<div class="f_box">
-		<h6>Follow Us</h6>
-		<ul>
-			<li><a><i class="fa fa-instagram"></i>Instagram</a></li>
-			<li><a><i class="fa fa-facebook"></i>Facebook</a></li>
-			<li><a><i class="fa fa-google-plus"></i>Google+</a></li>
-			<li><a><i class="fa fa-twitter"></i>Twitter</a></li>
-		</ul>
+	
+		<div class="search-image">
+			<figure><img src="image/undraw_booking.svg"></figure>
 		</div>
 	</div>
-	<div class="left">
-		<div class="f_box">
-		<h6>Service Hours</h6>
-		<ul>
-			<li>Monday - Friday:<br/>9am-5pm</li>
-			<li>Saturday - Sunday:<br/>11am-3pm</li>
-		</ul>
+	<!-- end of training -->
+	
+	
+	
+	
+	<!-- about ETMP -->
+	<div class="about-main">
+		<div class="titlepage">
+			<h2>About</h2>
 		</div>
-		<div class="f_box">
-		<h6><i class="fa fa-phone"></i> Contact Us</h6>
-		<ul>
-			<li>Telephone:<br/>+60 12-3456789</li>
-			<li>Office: 03-1234 5678</li>
-		</ul>
+		
+		<div class="aboutus-main">
+			<figure><img src="image/undraw_collab.svg"/></figure>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
+			<a href="about.html">Read more</a>
+			<br><br>
 		</div>
 	</div>
+	<!-- end of about ETMP -->
+	
+	
+	
+	<!-- why choose us -->
+	<div class="why">
+		<div class="titlepage">
+			<h2>Why Choose Us?</h2>
+			<p>Expert Group is committed to help its clients reach their goals, to personalising their event experiences, to providing an innovative environment, and to making a difference.</p>
+		</div>
+		
+		<div class="whychoose">
+		<div class="why-box">
+			<i><img src="image/why1.png"/></i>
+			<h3>Dedicated Team</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
+		</div>
+		
+		<div class="why-box">
+			<i><img src="image/why2.png"/></i>
+			<h3>Trustworthy</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
+		</div>
+		
+		<div class="why-box">
+			<i><img src="image/why3.png"/></i>
+			<h3>Research & Analysis</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
+		</div>
+		</div>
 	</div>
-</div>
-</footer>
+
+	<!--footer-->
+	<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-6">
+				<h4>Address</h4>
+				<p class="location">Example location here <br> Examplle location here</p>
+				</div>
+
+				<div class="col-xs-6 col-md-3">
+					<h6>Contacts</h6>
+						<ul class="footer-links">
+							<p>+6010 123 4567</p>
+							<p>example@email</p>
+						</ul>
+				</div>
+
+				<div class="col-xs-6 col-md-3">
+					<h4>Social Links</h4>
+						<ul class="footer-links">
+							<li>
+								<a href="">Twitter</a>
+							</li>
+							<li>
+								<a href="">Facebook</a>
+							</li>
+							<li>
+								<a href="">Instagram</a>
+							</li>
+							<li>
+								<a href="">Privacy Linkdin</a>
+							</li>
+						</ul>
+				</div>
+			</div>
+        <hr>
+		</div>
+	 
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-sm-6 col-xs-12">
+					<p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by ETMP.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
  
  </body>
 </html>
