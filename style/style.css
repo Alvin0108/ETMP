@@ -25,6 +25,10 @@
      font-weight: normal;
 	}
 	
+	a.return{
+		color:#12232E;
+	}
+	
 	ul,
 	li, 
 	a 
@@ -110,6 +114,10 @@ table.center{
 .register{
 	display: block;
 	margin: auto;
+}
+
+a.return {
+  color: 12232E;
 }
 
 /*Home.php*/

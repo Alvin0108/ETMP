@@ -1,8 +1,20 @@
-	<nav>
-		<img src="image/EXPERT.png" class="logo" height="55" width="150" alt="logo"/>
-		<a href="logout.php">Log out</a>
-		<a href="homepage.php">Home</a>
-		<a href="search.php">Training Search</a>
-		<a href="profile.php">Profile</a>
-		
-	</nav>
+<!-- ETMP logo -->	
+<img src="image/logo.png" alt="logo" class ="logo" width=10% height=auto>
+	
+	
+<nav class="topnav">
+	<ul class="nav-links">
+        <li>
+               <a class="nav-link-acive" href="homepage.html">Home</a>
+           </li>
+           <li>
+               <a class="nav-link" href="search.php">Training Search</a>
+           </li>
+		<li>
+            <a class="nav-link" href="profile.php">Profile</a>
+        </li>
+           <li>
+                <a class="nav-link" href="logout.php">Log out</a>
+           </li>
+       </ul>
+	   </nav>

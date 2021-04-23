@@ -66,7 +66,7 @@ function TrainingCheck()
 		<br/><br/><br/>
 		<div class="final_confirm">
 			<?php echo $user_training_check . $tname; ?><br/><br/>
-			<a href="search.php"><i class="fa fa-hand-o-right"> Return to Training Search </i></a>
+			<a href="search.php"class="return"><i class="fa fa-hand-o-right"> Return to Training Search </i></a>
 		</div>
 		<br/><br/><br/>
 		<hr/>
