@@ -35,6 +35,7 @@ if(isset($_POST["register_acc"])) {
 	if ($emailer=="" && $passer==""){
 		$email = $_POST["email"];
 		$pass = $_POST["pass"];
+		$pass = hash('sha256',$pass);
 		$sql = "UPDATE users SET password='$pass' WHERE user_email='$email'";
 		if (!mysqli_query($conn, $sql)) {
 		  echo "Error updating record: " . mysqli_error($conn);

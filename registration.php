@@ -56,7 +56,7 @@ if(isset($_POST["register_acc"])) {
 		$name = $_POST["name"];
 		$email = $_POST["email"];
 		$pass = $_POST["pass"];
-		
+		$pass = hash('sha256',$pass);
 		// Insert the record
 		$adding= "INSERT INTO users (user_name, user_email, password) VALUES 
 		('$name','$email','$pass');";

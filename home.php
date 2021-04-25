@@ -29,7 +29,7 @@ mysqli_query($conn, "create table IF NOT EXISTS users (
 user_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 user_name VARCHAR(20) NOT NULL,
 user_email VARCHAR(50) NOT NULL,
-password  VARCHAR(20) NOT NULL,
+password  VARCHAR(100) NOT NULL,
 description VARCHAR(50) NOT NULL,
 gender VARCHAR(50) NOT NULL
 );");
