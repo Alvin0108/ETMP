@@ -59,9 +59,7 @@ table,tr,th,td{
 	border: 1px solid black;
 }
 
-h1{
-	text-align:center;
-}
+
 
 form.search{
 	text-align:center;
@@ -255,6 +253,8 @@ header{
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
 		padding-bottom: 90px;
+		display: inline-flex;
+		padding: 30px;
 	}
 	
 	.text-bg{
@@ -332,9 +332,9 @@ header{
 	}
 	
 	.search-image {
-		margin: 0px;
-		padding-left: 150px;
-		width: 50%;
+
+		width: 100%;
+		text-align: right;
 	}
 	
 	
@@ -390,6 +390,11 @@ header{
 		text-align: center;
 	}
 	
+	.whychoose{
+		display: inline-flex;
+		
+	}
+	
 	.why .titlepage p {
 		color: #090808;
 	}
@@ -409,8 +414,8 @@ header{
 		border-radius: 20px;
 		padding: 40px 20px 20px 20px;
 		transition: ease-in all 0.5s;
-		margin-bottom: 30px;
-		box-shadow: #ddd 0px 0px 10px
+		box-shadow: #ddd 0px 0px 10px;
+		margin: 30px 25px;
 	}
 	
 	.why .why-box p {
@@ -438,18 +443,6 @@ header{
 		padding-bottom: 20px;
 	}
 	
-	ul .location li{
-		color: #fcfbfb;
-		display: flex;
-		font-size: 16px;
-		flex-wrap: wrap;
-		text-decoration: none;
-	}
-	
-	ul .location li a{
-		color: #fcfbfb;
-		margin-top: 4px;
-	}
 	
 	/*------------------------- copyright -------------------------*/
 	.site-footer
@@ -491,10 +484,22 @@ header{
   padding-left:0;
   list-style:none
 }
+
+.footer-item{
+	margin: 0 80px;
+}
+
+.footer-item li{
+	list-style-type: none;
+}
+
+
+
 .footer-links li
 {
-  display:block
+  display:block;
 }
+
 .footer-links a
 {
   color:#737373
@@ -531,4 +536,14 @@ header{
   {
     text-align:center
   }
+
+
+
+.footer-item{
+	display: inline-flex;
+	
 }
+
+
+
+
