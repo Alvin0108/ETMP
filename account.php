@@ -13,7 +13,8 @@
 	<body>
 <?php
 	//declare variables
-	$name = $email = $client_category = $password = $repeat = "";
+	session_start();
+	$name = $email = $client_category = $password = $repeat = $gender = "";
 	$nameer = $emailer = $passer = $genderErr = "";
 	$invalid = true;
 	
@@ -53,7 +54,14 @@ if(isset($_POST["register_acc"])) {
 		  echo "Error updating record: " . mysqli_error($conn);
 		}
 	}
-
+	$query = "SELECT * FROM users WHERE user_email='$email'";	// Check if the the email exist in the database
+	$results= mysqli_query($conn, $query);
+	$row = mysqli_fetch_assoc($results);
+	// Assign the Session variable so the page it direct can recieve the info
+	$_SESSION["user_name"] = $row["user_name"];
+	$_SESSION["user_id"] = $row["user_id"];
+	$_SESSION["user_email"] = $row["user_email"];
+	header("Location: profile.php");
 	mysqli_close($conn);
 }
 
