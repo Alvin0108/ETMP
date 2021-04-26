@@ -31,7 +31,8 @@ user_name VARCHAR(20) NOT NULL,
 user_email VARCHAR(50) NOT NULL,
 password  VARCHAR(100) NOT NULL,
 description VARCHAR(50) NOT NULL,
-gender VARCHAR(50) NOT NULL
+gender VARCHAR(50) NOT NULL,
+type VARCHAR(10) NOT NULL
 );");
 mysqli_query($conn,"create table IF NOT EXISTS training (
 user_id INT NOT NULL,

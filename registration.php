@@ -47,19 +47,24 @@ session_start();
 	
 	$conn = mysqli_connect("localhost","root","","portal_database");		// Connect to database
 if(isset($_POST["register_acc"])) {  
+
+	if (!empty($_POST["client_category"])) {
+	$client_category = $_POST["client_category"];
+	}
+
 	$nameer = NameCheck();							// Checking name input
 	$emailer = EmailCheck();							// Checking email input
 	$passer = PasswordCheck();							// Checking password input
 	$confirmer = ConfirmCheck();						// Checking confirm password input
 	if($nameer=="" && $emailer=="" && $passer=="" && $confirmer=="")		// If the string is empty then it mean no error
-	{	
+	{		
 		$name = $_POST["name"];
 		$email = $_POST["email"];
 		$pass = $_POST["pass"];
 		$pass = hash('sha256',$pass);
 		// Insert the record
-		$adding= "INSERT INTO users (user_name, user_email, password) VALUES 
-		('$name','$email','$pass');";
+		$adding= "INSERT INTO users (user_name, user_email, password, type) VALUES 
+		('$name','$email','$pass', '$client_category');";
 		$queryResult=mysqli_query($conn,$adding);
 		$query = "SELECT * FROM users WHERE user_email='$email'";	// Check if the the email exist in the database
 		$results= mysqli_query($conn, $query);
@@ -69,6 +74,8 @@ if(isset($_POST["register_acc"])) {
 		$_SESSION["user_id"] = $row["user_id"];
 		$_SESSION["user_email"] = $row["user_email"];
 		header("Location: add_personal_detail.php");
+		
+		
 	}
 }
 
