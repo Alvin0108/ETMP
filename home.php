@@ -39,7 +39,10 @@ user_id INT NOT NULL,
 training_id VARCHAR(10) NOT NULL,
 training_name VARCHAR(20) NOT NULL,
 training_des VARCHAR(250),
-training_fee INT NOT NULL
+training_fee INT NOT NULL,
+start_date DATE NOT NULL,
+end_date DATE NOT NULL,
+mode VARCHAR(10) NOT NULL
 );");
 mysqli_query($conn,"create table IF NOT EXISTS registration (
 register_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -53,11 +56,11 @@ register_date DATE NOT NULL
 //$sql .= "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Gillian','gillian@yahoo.com','1111');";
 //$sql .= "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Jack','jack@gmail.com','2222');";
 
-$train = "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('1','ID01','Java Programming','Learn basic Java','200');";
-$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('2','ID02','Python Programming','Learn how to use python','200');";
-$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('3','ID03','Engineering','Basic information of engineering','2000');";
-$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('4','ID04','Cooking','Cooking Sunday','500');";
-$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee) VALUES ('5','ID05','Leadership Skill','Time to lead your own company','500');";
+$train = "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('1','ID01','Java Programming','Learn basic Java','200','2022-01-10','2022-01-20','online');";
+$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('2','ID02','Python Programming','Learn how to use python','200','2022-01-10','2022-01-20','online');";
+$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('3','ID03','Engineering','Basic information of engineering','2000','2022-01-15','2022-01-25','online');";
+$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('4','ID04','Cooking','Cooking Sunday','500','2022-01-10','2021-02-10','2022-01-18','2021-01-30','online');";
+$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('5','ID05','Leadership Skill','Time to lead your own company','500','2022-02-02','2022-02-12','online');";
 
 $reg = "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID01','Java Programming','2020-12-05');";
 $reg .= "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID02','Python Programming','2020-12-10');";
