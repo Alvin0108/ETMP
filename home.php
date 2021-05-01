@@ -51,7 +51,8 @@ training_id VARCHAR(10) NOT NULL,
 training_name VARCHAR(20) NOT NULL,
 register_date DATE NOT NULL,
 training_date DATE NOT NULL,
-training_mode VARCHAR(10) NOT NULL
+training_mode VARCHAR(10) NOT NULL,
+venue_id VARCHAR(10) NOT NULL
 );");
 
 //$sql = "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Alvin','alvin@hotmail.com','0000');";
