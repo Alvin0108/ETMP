@@ -3,7 +3,6 @@ session_start();
 $user_email = $user_ID = "";
 $user_email = $_SESSION["user_email"];
 $user_ID = $_SESSION["user_id"];
-
 ?>
 
 <!--search training with filter function-->
@@ -13,7 +12,7 @@ $user_ID = $_SESSION["user_id"];
 	if(isset($_POST['search']))
 	{
 		$training_search = $_POST['training_search'];
-		$query = "SELECT * FROM `training` WHERE CONCAT(`training_id`, `training_name`, `training_fee`) 
+		$query = "SELECT * FROM `training` WHERE CONCAT(`training_id`, `training_name`, `training_fee`,`start_date`,`end_date`,`mode`) 
 		LIKE '%".$training_search."%'";
 		$search_result = filter($query);
 
@@ -61,7 +60,10 @@ $user_ID = $_SESSION["user_id"];
 		<tr>
 		<th>Id</th>
 		<th>Training Name</th>
-		<th>Fee</th>
+		<th>Fee (per person)</th>
+		<th>Starting Date</th>
+		<th>Ending Date</th>
+		<th>Training Mode</th>
 		<th>Register</th>
 		</tr>";
 		
@@ -71,6 +73,9 @@ $user_ID = $_SESSION["user_id"];
 			echo "<td>" . $row['training_id'] . "</td>";
 			echo "<td>" . $row['training_name'] . "</td>";
 			echo "<td> RM " . $row['training_fee'] . "</td>";
+			echo "<td>" . $row['start_date'] . "</td>";
+			echo "<td>" . $row['end_date'] . "</td>";
+			echo "<td>" . $row['mode'] . "</td>";
 			echo "<td><form action=finalize_training.php>
 			<input name=id type=hidden value='".$row['training_id']."'>   
 			<input type=submit class='register' name=register value=Register>
