@@ -67,15 +67,15 @@ $conn = mysqli_connect("localhost","root","","portal_database");
 mysqli_query($conn, "create table IF NOT EXISTS venues (
 venue_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 venue_name VARCHAR(20) NOT NULL,
-time VARCHAR(40) NOT NULL,
-number INT (10) NOT NULL,
+day VARCHAR(10) NOT NULL,
+time VARCHAR (40),
 availability VARCHAR(10) default 'Available',
 description VARCHAR(200) NOT NULL
 );");
 
-$sql_venue = "INSERT INTO venues (venue_name, time, number, description) VALUES ('Room A', '3.00 - 6.00p.m. each Thursday', '40', 'Its a room designed for user that prefer grouping');";
-$sql_venue .= "INSERT INTO venues (venue_name, time, number, description) VALUES ('Room B', '2.00 - 5.00p.m. each Tuesday', '20', 'Its a room designed for user that prefer quite environment');";
-$sql_venue .= "INSERT INTO venues (venue_name, time, number, description) VALUES ('Room C', '4.00 - 7.00p.m. each Saturday', '30', 'Its a room designed for user that prefer interact with both others');";
+$sql_venue = "INSERT INTO venues (venue_name, day, description) VALUES ('Room A', 'Thursday', 'Its a room designed for user that prefer grouping');";
+$sql_venue .= "INSERT INTO venues (venue_name, day, description) VALUES ('Room B', 'Tuesday', 'Its a room designed for user that prefer quite environment');";
+$sql_venue .= "INSERT INTO venues (venue_name, day, description) VALUES ('Room C', 'Saturday', 'Its a room designed for user that prefer interact with both others');";
 
 $venue = mysqli_query($conn, "Select * from venues");
 
@@ -115,7 +115,7 @@ if (mysqli_num_rows($venue) <= 0) {
 		<th>Image</th>
 		<th>Room ID </th>
 		<th>Room Name</th>
-		<th>Tuition Time</th>
+		<th>Tuition Day</th>
 		<th>Number of people participated</th>
 		<th>Description</th>
 		</tr>";
@@ -126,14 +126,13 @@ if (mysqli_num_rows($venue) <= 0) {
 		
 			$image = "image/room_" . (string)$count . ".png";
 			echo "<tr>";
+			echo "<td>" . $row['venue_id'] . "</td>";
 			echo "<td>" . "
 			<img src='$image' height=200px width=200px>" . "</td>";
-			echo "<td>" . $row['venue_id'] . "</td>";
 			echo "<td>" . $row['venue_name'] . "</td>";
-			echo "<td>" . $row['time'] . "</td>";
-			echo "<td>" . $row['number'] . "</td>";
+			echo "<td>" . $row['day'] . "</td>";
 			echo "<td>" . $row['description'] . "</td>";
-			echo "<td><form action=finalize_training.php>
+			echo "<td><form action=modify_venue.php>
 			<input name=id type=hidden value='".$row['venue_id']."'>   
 			<input type=submit class='Select' name=select value=SELECT>
 			</form></td>";
