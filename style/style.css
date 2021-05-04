@@ -10,19 +10,26 @@
 /*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
 
 /*------------------------New update-----------------------*/
-label{
-	width:120px;
-	display:inline-block;
-	text-align:left;
-}
+	@media screen and (max-width: 650px){
+		.team-column,
+		.why-box{
+			width: 100%;
+			display: block;
+		}
+	}
 
-/* Add a blue text color to links */
-a {
-  color: #12232E;
-}
-/*---------------------------------------------------------*/
+	label{
+		width:120px;
+		display:inline-block;
+		text-align:left;
+	}
 
-
+	/* Add a blue text color to links */
+	a {
+	  color: #12232E;
+	}
+	
+	/*---------------------------------------------------------*/
 
 	* {
 		box-sizing: border-box !important;
@@ -39,6 +46,7 @@ a {
      font-family: 'Roboto', sans-serif;
      line-height: 1.80857;
      font-weight: normal;
+	 margin: 0;
 	}
 	
 	a.return{
@@ -205,8 +213,10 @@ hr {
 	opacity: 1;
 }
 
-/*--------------------------------------------------------------------- header ---------------------------------------------------------------------*/
-header{
+/*--------------------------------------------------------------------- HOMEPAGE.HTML ---------------------------------------------------------------------*/
+
+	/*---------------------- header ---------------------*/
+	header{
 		display:flex;
 		justify-content: flex-end;
 		align-items: center;
@@ -238,7 +248,7 @@ header{
 		color: #6C63FF;
 	}
 	
-	.create-button{
+	/*.create-button{
 		margin-left: 20px;
 		padding: 9px 25px;
 		background-color: rgba(108, 99, 255, 1);
@@ -250,7 +260,7 @@ header{
 	
 	.create-button:hover{
 		background-color: rgba(108, 99, 255, 0.8);
-	}
+	}*/
 
 	/*-------------------------------------------- body -------------------------------------------------*/
 	hr{
@@ -275,7 +285,7 @@ header{
 	.text-bg h1{
 		font-size: 60px;
 		line-height: 80px;
-		padding-height: 25px;
+		padding-height: 20px;
 		font-weight: bold;
 	}
 	
@@ -372,6 +382,7 @@ header{
 		line-height: 28px;
 		padding: 40px 50px;
 		color: #fff;
+		text-align: justify;
 	}
 	
 	.aboutus-main a {
@@ -387,6 +398,8 @@ header{
 		font-weight: 400;
 		margin-top: 10px;
 	}
+	
+
 	
 	/*------------------------- why section -------------------------*/
 	.why{
@@ -443,116 +456,140 @@ header{
 		background: #3b3b3b;
 	}
 	
-	
-	.footer .address h3 {
-		color: #fff;
-		font-size: 25px;
-		line-height: 35px;
-		font-weight: bold;
-		padding-bottom: 20px;
-	}
+
 	
 	
 	/*------------------------- copyright -------------------------*/
-	.site-footer
-{
-  background-color:#26272b;
-  padding:45px 0 20px;
-  font-size:15px;
-  line-height:24px;
-  color:#737373;
-}
-.site-footer hr
-{
-  border-top-color:#bbb;
-  opacity:0.5
-}
-.site-footer hr.small
-{
-  margin:20px 0
-}
-.site-footer h6
-{
-  color:#fff;
-  font-size:16px;
-  text-transform:uppercase;
-  margin-top:5px;
-  letter-spacing:2px
-}
-.site-footer a
-{
-  color:#737373;
-}
-.site-footer a:hover
-{
-  color:#3366cc;
-  text-decoration:none;
-}
-.footer-links
-{
-  padding-left:0;
-  list-style:none
-}
-
-.footer-item{
-	margin: 0 80px;
-}
-
-.footer-item li{
-	list-style-type: none;
-}
-
-
-
-.footer-links li
-{
-  display:block;
-}
-
-.footer-links a
-{
-  color:#737373
-}
-.footer-links a:active,.footer-links a:focus,.footer-links a:hover
-{
-  color:#3366cc;
-  text-decoration:none;
-}
-.footer-links.inline li
-{
-  display:inline-block
-}
-.site-footer 
-{
-  text-align:right
-}
-.site-footer  a
-{
-  width:40px;
-  height:40px;
-  line-height:40px;
-  margin-left:6px;
-  margin-right:0;
-  border-radius:100%;
-  background-color:#33353d
-}
-.copyright-text
-{
-  margin:0
-}
-
-  .site-footer .copyright-text,.site-footer 
-  {
-    text-align:center
-  }
-
-
-
-.footer-item{
-	display: inline-flex;
+	.site-footer{
+	  background-color:#26272b;
+	  padding:45px 0 20px;
+	  font-size:15px;
+	  line-height:24px;
+	  color:#737373;
+	}
 	
-}
+	.site-footer hr{
+	border-top-color:#bbb;
+	opacity:0.5
+	}
+	
+	.site-footer hr.small
+	{
+	  margin:20px 0
+	}
+	
+	.site-footer h6
+	{
+	  color:#fff;
+	  font-size:16px;
+	  text-transform:uppercase;
+	  margin-top:5px;
+	  letter-spacing:2px
+	}
+	
+	.site-footer a
+	{
+	  color:#737373;
+	}
+	.site-footer a:hover
+	{
+	  color:#3366cc;
+	  text-decoration:none;
+	}
+	.footer-links
+	{
+	  padding-left:0;
+	  list-style:none
+	}
+
+	.footer-item{
+		margin: 0 80px;
+	}
+
+	.footer-item li{
+		list-style-type: none;
+	}
+
+	.footer-links li
+	{
+	  display:block;
+	}
+
+	.footer-links a
+	{
+	  color:#737373
+	}
+	.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+	{
+	  color:#3366cc;
+	  text-decoration:none;
+	}
+	.footer-links.inline li
+	{
+	  display:inline-block
+	}
+	.site-footer 
+	{
+	  text-align:right
+	}
+	.site-footer  a
+	{
+	  width:40px;
+	  height:40px;
+	  line-height:40px;
+	  margin-left:6px;
+	  margin-right:0;
+	  border-radius:100%;
+	  background-color:#33353d
+	}
+	.copyright-text
+	{
+	  margin:0
+	}
+
+	  .site-footer .copyright-text,.site-footer 
+	  {
+		text-align:center;
+	  }
 
 
 
+	.footer-item{
+		display: inline-flex;
+		
+	}
+
+/*--------------------------------------------------------------------- ABOUT.HTML ---------------------------------------------------------------------*/
+	
+	/*------------------------- team section -------------------------*/
+	.team-column{
+		float:left;
+		width:25%;
+		margin-bottom: 16px;
+		padding: 0 8px;
+	}
+	
+	.team-card{
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		margin:8px;
+	}
+	
+	.teamtext-container{
+		padding: 0 16px;
+	}
+	
+	.teamtext-container::after, .about-team::after{
+		content: "";
+		clear: both;
+		display: table;
+	}
+	
+	.team-title{
+		color: grey;
+	}
+	
+	
+	
+	
+	
 
