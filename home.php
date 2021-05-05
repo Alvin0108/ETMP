@@ -120,6 +120,40 @@ $conn->close();
 
 ?>
 
+<?php
+
+$conn = mysqli_connect("localhost","root","","portal_database");	
+mysqli_query($conn, "create table IF NOT EXISTS venues (
+venue_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+venue_name VARCHAR(20) NOT NULL,
+day VARCHAR(10) NOT NULL,
+time VARCHAR (40),
+availability VARCHAR(10) default 'Available',
+description VARCHAR(200) NOT NULL
+);");
+
+$sql_venue = "INSERT INTO venues (venue_name, day, description) VALUES ('Room A', 'Thursday', 'Its a room designed for user that prefer grouping');";
+$sql_venue .= "INSERT INTO venues (venue_name, day, description) VALUES ('Room B', 'Tuesday', 'Its a room designed for user that prefer quite environment');";
+$sql_venue .= "INSERT INTO venues (venue_name, day, description) VALUES ('Room C', 'Saturday', 'Its a room designed for user that prefer interact with both others');";
+
+$venue = mysqli_query($conn, "Select * from venues");
+
+if (mysqli_num_rows($venue) <= 0) {
+	$result = mysqli_multi_query($conn, $sql_venue);
+	if($result != false)
+	{
+		echo "<h4>Venue tables successfully created and populated</h4><br/>";
+	
+	}
+	else
+	{
+		echo "Error: " . $result . "<br>" . mysqli_error($conn). "<br>";
+	}
+}
+
+$conn->close();
+?>
+
 
 </body>
 </html>
