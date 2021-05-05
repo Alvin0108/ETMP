@@ -16,7 +16,8 @@
 <h1>Welcome to <br/>Expert Training Portal</h1>
 <br/><br/>
 <div class="center">
-	<a href="login.php"><button class="button user" >Login as user</button></a>
+	<a href="login.php"><button class="button user" >Login as user </button></a><br/>
+	<a href="admin_login.php"><button class="button user" >Login as admin</button></a>
 </div>
 
 <?php
@@ -31,11 +32,14 @@ user_name VARCHAR(20) NOT NULL,
 user_email VARCHAR(50) NOT NULL,
 password  VARCHAR(100) NOT NULL,
 description VARCHAR(50) NOT NULL,
-gender VARCHAR(50) NOT NULL,
-type VARCHAR(10) NOT NULL
+gender VARCHAR(50) NOT NULL
+);");
+mysqli_query($conn, "create table IF NOT EXISTS admin (
+admin_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+admin_email VARCHAR(50) NOT NULL,
+admin_password  VARCHAR(100) NOT NULL
 );");
 mysqli_query($conn,"create table IF NOT EXISTS training (
-user_id INT NOT NULL,
 training_id VARCHAR(10) NOT NULL,
 training_name VARCHAR(20) NOT NULL,
 training_des VARCHAR(250),
@@ -51,19 +55,18 @@ training_id VARCHAR(10) NOT NULL,
 training_name VARCHAR(20) NOT NULL,
 register_date DATE NOT NULL,
 training_date DATE NOT NULL,
-training_mode VARCHAR(10) NOT NULL,
-venue_id VARCHAR(10) NOT NULL
+training_mode VARCHAR(10) NOT NULL
 );");
 
 //$sql = "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Alvin','alvin@hotmail.com','0000');";
 //$sql .= "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Gillian','gillian@yahoo.com','1111');";
 //$sql .= "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Jack','jack@gmail.com','2222');";
 
-$train = "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('1','ID01','Java Programming','Learn basic Java','200','2022-01-10','2022-01-13','online');";
-$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('2','ID02','Python Programming','Learn how to use python','200','2022-01-10','2022-01-13','online');";
-$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('3','ID03','Engineering','Basic information of engineering','150','2022-01-15','2022-01-18','online');";
-$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('4','ID04','Cooking','Cooking Sunday','500','2022-01-10','2022-01-15','online');";
-$train .= "INSERT INTO training (user_id, training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('5','ID05','Leadership Skill','Time to lead your own company','500','2022-02-02','2022-02-05','online');";
+$train = "INSERT INTO training (training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('ID01','Java Programming','Learn basic Java','200','2022-01-10','2022-01-13','online');";
+$train .= "INSERT INTO training (training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('ID02','Python Programming','Learn how to use python','200','2022-01-10','2022-01-13','online');";
+$train .= "INSERT INTO training (training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('ID03','Engineering','Basic information of engineering','150','2022-01-15','2022-01-18','online');";
+$train .= "INSERT INTO training (training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('ID04','Cooking','Cooking Sunday','500','2022-01-10','2022-01-15','online');";
+$train .= "INSERT INTO training (training_id, training_name, training_des, training_fee, start_date,end_date, mode) VALUES ('ID05','Leadership Skill','Time to lead your own company','500','2022-02-02','2022-02-05','online');";
 
 //$reg = "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID01','Java Programming','2020-12-05');";
 //$reg .= "INSERT INTO registration (user_id,training_id,training_name,register_date) VALUES ('1','ID02','Python Programming','2020-12-10');";

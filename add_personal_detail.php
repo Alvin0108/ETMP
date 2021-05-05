@@ -41,12 +41,12 @@ $user_name = $_SESSION["user_name"];
 			<hr>
 		
 			<br><br><label for="name"><b>Name</b></label>
-			<input type="name" name="name" id="name" value=<?php echo $user_name?> disabled ><br>
+			<input type="name" name="name" id="name" value="<?php echo $user_name;?>" disabled ><br>
 	
 			<label for="email"><b>Email</b></label>
-			<input type="email" name="email" id="email" value="<?php echo $user_email?>" disabled><br>
+			<input type="email" name="email" id="email" value="<?php echo $user_email;?>" disabled><br>
 
-			<label for="text"><b>About yourself</b></label>
+			<label for="desc"><b>About yourself</b></label>
 			<input type="text" placeholder="Enter some descrtiption..." name="desc" id="desc" required /><br><br>
 			
 			<label for="gender"><b>Gender</b></label><br/>
