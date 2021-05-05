@@ -55,7 +55,8 @@ training_id VARCHAR(10) NOT NULL,
 training_name VARCHAR(20) NOT NULL,
 register_date DATE NOT NULL,
 training_date DATE NOT NULL,
-training_mode VARCHAR(10) NOT NULL
+training_mode VARCHAR(10) NOT NULL,
+training_time VARCHAR(40) NOT NULL
 );");
 
 //$sql = "INSERT INTO users (user_name,user_email,password,description,gender) VALUES ('Alvin','alvin@hotmail.com','0000');";
@@ -131,7 +132,13 @@ time VARCHAR (40),
 availability VARCHAR(10) default 'Available',
 description VARCHAR(200) NOT NULL
 );");
-
+mysqli_query($conn, "create table IF NOT EXISTS register_venue (
+rv_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+register_id VARCHAR(20) NOT NULL,
+venue_id VARCHAR(20) NOT NULL,
+day VARCHAR(10) NOT NULL,
+time VARCHAR(40)
+);");
 $sql_venue = "INSERT INTO venues (venue_name, day, description) VALUES ('Room A', 'Thursday', 'Its a room designed for user that prefer grouping');";
 $sql_venue .= "INSERT INTO venues (venue_name, day, description) VALUES ('Room B', 'Tuesday', 'Its a room designed for user that prefer quite environment');";
 $sql_venue .= "INSERT INTO venues (venue_name, day, description) VALUES ('Room C', 'Saturday', 'Its a room designed for user that prefer interact with both others');";
