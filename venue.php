@@ -2,7 +2,6 @@
 
 <?php 
 	session_start();
-	$rid = 1;
 	$_SESSION["rid"] = $rid;
 ?>
 

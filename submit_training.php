@@ -27,7 +27,10 @@ if(isset($_POST["confirm"])) {
 		$add= "INSERT INTO registration (user_id,training_id,training_name,register_date,training_date,training_mode) VALUES ('$user_ID','$tid','$tname','$date','$tdate','$tmode')";
 		$queryResult = mysqli_query($conn,$add);
 		$user_training_check = "<span style='color:green'>You success register </span>";
-		$row = mysqli_fetch_array($queryResult)
+		//Select registration id
+		$sql = "SELECT * FROM registration";
+		$result = mysqli_query($conn,$sql);
+		$row = mysqli_fetch_assoc($result);
 		$_SESSION["rid"] = $row["register_id"];
 	}
 }
