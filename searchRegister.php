@@ -31,7 +31,7 @@
     </head>
 	<header>
 	<!--navigation-->
-	<?php include "navigation.php";?>
+	<?php include "admin_navigation.php";?>
 
 	</header>
     <body>   
@@ -43,18 +43,24 @@
             <table class="center">
                 <tr>
 					<th>Register ID</th>
+					<th>User ID</th>
 					<th>Training ID</th>
                     <th>Training Name</th>
-                    <th>Date</th>
+                    <th>Register Date</th>
+					<th>Start Date</th>
+					<th>Mode</th>
                 </tr>
 				<?php while($row = mysqli_fetch_array($search_result)):?>
 					<tr>
 						<td><?php echo $row['register_id'];?></td>
+						<td><?php echo $row['user_id'];?></td>
 						<td><?php echo $row['training_id'];?></td>
 						<td><?php echo $row['training_name'];?></td>
 						<td><?php echo $row['register_date'];?></td>
+						<td><?php echo $row['training_date'];?></td>
+						<td><?php echo $row['training_mode'];?></td>
 					</tr>
 				<?php endwhile;?>
-            </table>	
+            </table>
     </body>
 </html>

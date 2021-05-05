@@ -42,15 +42,11 @@
 <?php
 session_start();
 	//declare variables
-	$name = $email = $client_category = $pass = $repeat = "";
+	$name = $email = $pass = $repeat = "";
 	$nameer = $emailer = $passer = $confirmer = "";
 	
 	$conn = mysqli_connect("localhost","root","","portal_database");		// Connect to database
 if(isset($_POST["register_acc"])) {  
-
-	if (!empty($_POST["client_category"])) {
-	$client_category = $_POST["client_category"];
-	}
 
 	$nameer = NameCheck();							// Checking name input
 	$emailer = EmailCheck();							// Checking email input
@@ -63,8 +59,8 @@ if(isset($_POST["register_acc"])) {
 		$pass = $_POST["pass"];
 		$pass = hash('sha256',$pass);
 		// Insert the record
-		$adding= "INSERT INTO users (user_name, user_email, password, type) VALUES 
-		('$name','$email','$pass', '$client_category');";
+		$adding= "INSERT INTO users (user_name, user_email, password) VALUES 
+		('$name','$email','$pass');";
 		$queryResult=mysqli_query($conn,$adding);
 		$query = "SELECT * FROM users WHERE user_email='$email'";	// Check if the the email exist in the database
 		$results= mysqli_query($conn, $query);
@@ -130,12 +126,7 @@ function ConfirmCheck()
 	<form action="registration.php" method="post">
 		<div class="container">
 			<h1>Sign Up</h1>
-
 			<hr>
-
-			<input type="radio" name="client_category" value="individual" required> Individual</input>
-			<input type="radio" name="client_category" value="company" required>Company</input>
-		
 			<br><br><label for="name"><b>Name</b></label>
 			<input type="name" placeholder="Enter Name" name="name" id="name" required><span style="color:red"><?php echo $nameer ?></span><br>
 	
