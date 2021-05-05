@@ -2,6 +2,8 @@
 
 <?php 
 	session_start();
+	$rid = 1;
+	$_SESSION["rid"] = $rid;
 ?>
 
 <!--search training with filter function-->
@@ -61,39 +63,7 @@
   background-color: black;
 }
 </style>
-<?php
 
-$conn = mysqli_connect("localhost","root","","portal_database");	
-mysqli_query($conn, "create table IF NOT EXISTS venues (
-venue_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-venue_name VARCHAR(20) NOT NULL,
-day VARCHAR(10) NOT NULL,
-time VARCHAR (40),
-availability VARCHAR(10) default 'Available',
-description VARCHAR(200) NOT NULL
-);");
-
-$sql_venue = "INSERT INTO venues (venue_name, day, description) VALUES ('Room A', 'Thursday', 'Its a room designed for user that prefer grouping');";
-$sql_venue .= "INSERT INTO venues (venue_name, day, description) VALUES ('Room B', 'Tuesday', 'Its a room designed for user that prefer quite environment');";
-$sql_venue .= "INSERT INTO venues (venue_name, day, description) VALUES ('Room C', 'Saturday', 'Its a room designed for user that prefer interact with both others');";
-
-$venue = mysqli_query($conn, "Select * from venues");
-
-if (mysqli_num_rows($venue) <= 0) {
-	$result = mysqli_multi_query($conn, $sql_venue);
-	if($result != false)
-	{
-		echo "<h4>Venue tables successfully created and populated</h4><br/>";
-	
-	}
-	else
-	{
-		echo "Error: " . $result . "<br>" . mysqli_error($conn). "<br>";
-	}
-}
-
-
-?>
 <html lang="en">
 
 <head>
@@ -108,25 +78,27 @@ if (mysqli_num_rows($venue) <= 0) {
 	<?php include "navigation.php";?>
 
 	</header>
+	<body>
+	
+	<h1 align="center"> Select one of the venue <?php echo $rid ?> </h1> <br/><br/>
 		<?php 
 		$count = 1;
 		echo "<table class='center'>
 		<tr>
-		<th>Image</th>
 		<th>Room ID </th>
+		<th>Image</th>
 		<th>Room Name</th>
 		<th>Tuition Day</th>
-		<th>Number of people participated</th>
 		<th>Description</th>
+		<th>Selection</th>
 		</tr>";
 		
 		while($row = mysqli_fetch_array($search_result))
 		{
 			$id = $row['venue_id'];
-		
-			$image = "image/room_" . (string)$count . ".png";
+			$image = "image/room" . (string)$count . ".jpg";
 			echo "<tr>";
-			echo "<td>" . $row['venue_id'] . "</td>";
+			echo "<td>" . $id . "</td>";
 			echo "<td>" . "
 			<img src='$image' height=200px width=200px>" . "</td>";
 			echo "<td>" . $row['venue_name'] . "</td>";
