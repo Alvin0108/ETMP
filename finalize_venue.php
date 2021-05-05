@@ -23,7 +23,7 @@ if(isset($_POST["confirm"])) {
 		$conn = mysqli_connect("localhost","root","","portal_database");
 		$add= "INSERT INTO register_venue (register_id, venue_id, day, time) VALUES ('$r_id', '$v_id', '$v_day', '$v_time')";
 		$queryResult = mysqli_query($conn,$add);
-		$rv_check = "<span style='color:green'>You success book the venue</span>";
+		$rv_check = "<span style='color:green'>You success assign the venue to this registration</span>";
 	}
 }
 
@@ -37,7 +37,7 @@ function RVCheck()
 	// Checking if the same same user register same training again
 	if((mysqli_num_rows($results))>0)
 	{
-			return "<span style='color:red'>This venue is assigned to the registration </span>";
+			return "<span style='color:red'> This venue is already assigned to the registration </span>";
 	}
 }
 
@@ -61,8 +61,8 @@ function RVCheck()
     <body>   
 			<br/><br/><br/>
 		<div class="final_confirm">
-			<?php echo $rv_check . $v_name; ?><br/><br/>
-			<a href="search.php"class="return"><i class="fa fa-hand-o-right"> Return to Training Search </i></a>
+			<?php echo $rv_check ?><br/><br/>
+			<a href="venue.php"class="return"><i class="fa fa-hand-o-right"> Return to Venue pafe </i></a>
 		</div>
 		<br/><br/><br/>
 		<hr/>
