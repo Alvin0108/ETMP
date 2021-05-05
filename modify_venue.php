@@ -3,7 +3,7 @@
 	$user_email = $user_ID = $t_date = "";
 	$user_email = $_SESSION["user_email"];
 	$user_ID = $_SESSION["user_id"];
-	
+	$rid = $_SESSION["rid"];
 ?>
 <?php
 	if(isset($_GET['id'])){
@@ -49,7 +49,7 @@
 	</header>
 	<body> 
 		<div class="container">
-        <form action="modify_venue.php" method="post" class="check">
+        <form action="finalize_venue.php" method="post" class="check">
 		<fieldset>
 		<legend> Venue Modification </legend>
 			<br/>
@@ -59,14 +59,19 @@
 				<fieldset>
 				<legend>Venue Information</legend>
 					<label>Venue ID: </label>
-					<input type="text" id="v_code" name="v_code" value="<?php echo $v_id ?>" disabled><br><br>
+					<input type="text" id="code" name="code" value="<?php echo $v_id ?>" disabled><br><br>
 					<label>Venue Name: </label>
-					<input type="text" id="v_name" name="v_name" value="<?php echo $v_name ?>" disabled><br><br>
+					<input type="text" id="name" name="name" value="<?php echo $v_name ?>" disabled><br><br>
 					<label>Description: </label>
 					<input type="text" id="desc" name="desc" value=" <?php echo $v_desc ?>" disabled><br><br>
-					<label>Day: </label>
-					<input type="text" id="day" name="day" value=" <?php echo $v_day ?>" disabled><br><br>
-					  <label for="time">Choose a time:</label>
+					<label for="day">Choose a Day: </label>
+						<select name="day" id="day">
+						<option value="<?php echo $v_day ?>"><?php echo $v_day ?></option>
+						<option value="Monday">Monday</option>
+						<option value="Wednesday">Wednesday</option>
+						<option value="Friday">Friday</option>
+						</select><br><br>
+					<label for="time">Choose a time:</label>
 						<select name="time" id="time">
 						<option value="9.00am to 11.00am">9.00am to 11.00am</option>
 						<option value="12.00pm to 2.00pm">12.00pm to 2.00pm</option>
