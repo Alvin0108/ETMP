@@ -5,16 +5,16 @@
 
 <?php
 	//declare variables
-$v_id = $v_name = $v_day = $v_time = "";
-$r_id = $_SESSION["rid"];
+$r_id = $v_id = $v_name = $v_day = $v_time = "";
 $rv_check = "";
+	$r_id = $_SESSION["rid"];
+	echo $r_id;
 	
 if(isset($_POST["confirm"])) {
 	$v_id = $_SESSION["vid"];
 	$v_name = $_SESSION["vname"];
 	$v_day = $_POST["day"];
 	$v_time = $_POST["time"];
-
 	$rv_check = RVCheck();
 	
 	if($rv_check == "")
@@ -62,7 +62,7 @@ function RVCheck()
 			<br/><br/><br/>
 		<div class="final_confirm">
 			<?php echo $rv_check ?><br/><br/>
-			<a href="venue.php"class="return"><i class="fa fa-hand-o-right"> Return to Venue pafe </i></a>
+			<a href="venue.php"class="return"><i class="fa fa-hand-o-right"> Return to Venue page </i></a>
 		</div>
 		<br/><br/><br/>
 		<hr/>

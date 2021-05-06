@@ -2,7 +2,22 @@
 
 <?php 
 	session_start();
-	$_SESSION["rid"] = $rid;
+    //declare variables
+    $user_training_check = $venues_search  = "";
+    $user_email = $user_ID = $tid = $rid= "";
+
+    $user_email = $_SESSION["user_email"];
+    $user_ID = $_SESSION["user_id"];
+    $tid = $_SESSION["tid"];
+
+    $_SESSION["rid"] = $rid;
+
+    //Select registration id
+    $conn = mysqli_connect("localhost","root","","portal_database");
+    $sql = "SELECT * FROM registration WHERE user_id='$user_ID' AND training_id='$tid'";
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+    $_SESSION["rid"] = $row["register_id"];
 ?>
 
 <!--search training with filter function-->
