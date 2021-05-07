@@ -35,6 +35,7 @@ if(isset($_POST["add"])) {
 	$name = $_POST['name'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
+	$password = hash('sha256',$password);
 	$desc = $_POST['desc'];
 	$gender = $_POST['gender'];
 
