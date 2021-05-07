@@ -7,8 +7,7 @@
 	//declare variables
 $r_id = $v_id = $v_name = $v_day = $v_time = "";
 $rv_check = "";
-	$r_id = $_SESSION["rid"];
-	echo $r_id;
+$r_id = $_SESSION["rid"];
 	
 if(isset($_POST["confirm"])) {
 	$v_id = $_SESSION["vid"];
