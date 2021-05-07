@@ -128,7 +128,6 @@ mysqli_query($conn, "create table IF NOT EXISTS venues (
 venue_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 venue_name VARCHAR(20) NOT NULL,
 day VARCHAR(10) NOT NULL,
-time VARCHAR (40),
 availability VARCHAR(10) default 'Available',
 description VARCHAR(200) NOT NULL
 );");

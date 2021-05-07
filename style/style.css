@@ -162,7 +162,7 @@ a.return {
 
 		
 	/* Full-width input fields */
-input[type=name],input[type=password],input[type=email],input[type=gender],input[type=date],input[type=desc]{
+input[type=name],input[type=password],input[type=email],input[type=gender],input[type=date],input[type=desc], select{
 	width: 20%;
 	padding: 15px;
 	margin: 5px 0 22px 0;
