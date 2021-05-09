@@ -66,20 +66,20 @@ function NameCheck()
 		<div class="center">
 			<h2>Add new Venue Record</h1>
 			<hr>	
-
 			<label for="vname"><b>Venue Name</b></label>
-			<input type="name" placeholder="Venue Name" name="vname" id="vname" value="<?php echo $vname;?>" required><br>
+			<input type="name" placeholder="Venue Name" name="vname" id="vname" value="<?php echo $vname;?>" required><br/><br/>
 
 			<label for="vdesc"><b>Venue Description</b></label>
-			<input type="name" placeholder="About the venue" name="vdesc" id="vdesc" value="<?php echo $vdesc;?>" required><br>
-			
+			<input type="desc" placeholder="About the venue" name="vdesc" id="vdesc" value="<?php echo $vdesc;?>" required><br/><br/>
+
 			<label for="day"><b>Choose a Day <b/></label>
-				<select name="day" id="day" class="day">
+				<select name="day" id="days" class="days">
 				<option value="Tuesday">Tuesday</option>
 				<option value="Thursday">Thursday</option>
 				<option value="Saturday">Saturday</option>
 				<option value="Sunday">Sunday</option>
-				</select><br><br>
+				</select><br/><br/>
+			
 			<button type="submit" name="add">Add Venue Record</button>
 		</div>
 	</form>
