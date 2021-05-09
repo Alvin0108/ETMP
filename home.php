@@ -129,6 +129,7 @@ venue_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 venue_name VARCHAR(20) NOT NULL,
 day VARCHAR(10) NOT NULL,
 availability VARCHAR(10) default 'Available',
+image VARCHAR(250) NOT NULL,
 description VARCHAR(200) NOT NULL
 );");
 mysqli_query($conn, "create table IF NOT EXISTS register_venue (
@@ -138,9 +139,9 @@ venue_id VARCHAR(20) NOT NULL,
 day VARCHAR(10) NOT NULL,
 time VARCHAR(40)
 );");
-$sql_venue = "INSERT INTO venues (venue_name, day, description) VALUES ('Room A', 'Thursday', 'Its a room designed for user that prefer grouping');";
-$sql_venue .= "INSERT INTO venues (venue_name, day, description) VALUES ('Room B', 'Tuesday', 'Its a room designed for user that prefer quite environment');";
-$sql_venue .= "INSERT INTO venues (venue_name, day, description) VALUES ('Room C', 'Saturday', 'Its a room designed for user that prefer interact with both others');";
+$sql_venue = "INSERT INTO venues (venue_name, day, description, image) VALUES ('Room A', 'Thursday', 'Its a room designed for user that prefer grouping', 'room1.jpg');";
+$sql_venue .= "INSERT INTO venues (venue_name, day, description, image) VALUES ('Room B', 'Tuesday', 'Its a room designed for user that prefer quite environment', 'room2.jpg');";
+$sql_venue .= "INSERT INTO venues (venue_name, day, description, image) VALUES ('Room C', 'Saturday', 'Its a room designed for user that prefer interact with both others', 'room3.jpg');";
 
 $venue = mysqli_query($conn, "Select * from venues");
 

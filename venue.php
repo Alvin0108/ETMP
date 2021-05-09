@@ -96,7 +96,6 @@
 	
 	<h1 align="center"> Select one of the venue <?php echo $rid ?> </h1> <br/><br/>
 		<?php 
-		$count = 1;
 		echo "<table class='center'>
 		<tr>
 		<th>Room ID </th>
@@ -110,7 +109,8 @@
 		while($row = mysqli_fetch_array($search_result))
 		{
 			$id = $row['venue_id'];
-			$image = "image/room" . (string)$count . ".jpg";
+			$image = $row['image'];
+			$image = "image/" . $image;
 			echo "<tr>";
 			echo "<td>" . $id . "</td>";
 			echo "<td>" . "
@@ -123,7 +123,6 @@
 			<input type=submit class='Select' name=select value=SELECT>
 			</form></td>";
 			echo "</tr>";
-			$count++;
 		}
 		echo "</table>";
 		?>	
