@@ -29,12 +29,16 @@
 	  color: #12232E;
 	}
 	
-	/*---------------------------------------------------------*/
+
+	
+/* ---------------------------------------------------------*/
+	
+/*---------------------------------------------------------*/
 
 	* {
 		box-sizing: border-box !important;
 		margin: 0;
-		padding 0;
+		padding: 0;
 	}
 
 	html {
@@ -92,7 +96,9 @@ form.check{
 }
 
 fieldset {
-	display:inline
+	display:inline;
+	padding:20px;
+	
 }
 
 .final_confirm{
@@ -107,19 +113,11 @@ fieldset {
 }
 
 .tab {
-	margin-left: 2.5em
+	margin-left: 2.5em;
 }
 
 .center{
 	text-align:center;
-}
-
-input[type=text] {
-	padding: 10px;
-	border: 1px solid #ccc;
-	text-align:center;
-	border-radius: 20px;
-	resize: vertical;
 }
 
 table.center{
@@ -162,13 +160,30 @@ a.return {
 
 		
 	/* Full-width input fields */
-input[type=name],input[type=password],input[type=email],input[type=gender],input[type=date],input[type=desc], select{
+input[type=name],input[type=password],input[type=email],input[type=gender],input[type=date],input[type=desc]{
 	width: 20%;
 	padding: 15px;
 	margin: 5px 0 22px 0;
 	display: inline-block;
 	border: none;
 	background: #f1f1f1;
+}
+
+input[type=text] {
+	padding: 10px;
+	border: 1px solid #ccc;
+	text-align:center;
+	border-radius: 20px;
+	resize: vertical;
+}
+
+select{
+	width: 60%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	text-align:center;
+	border-radius: 20px;
+	resize: vertical;
 }
 
 input[type=name]:focus,input[type=password]:focus, input[type=email]:focus{
