@@ -36,7 +36,7 @@
 <html lang="en">
 
 <head>
-	<title> Venue Selection </title>
+	<title> Modify Venue </title>
 	<meta charset ="utf-8">
 	<meta name="descrtiption" content="php">
 	<meta name="keywords" content="ETMP">
