@@ -114,7 +114,7 @@
 			echo "<tr>";
 			echo "<td>" . $id . "</td>";
 			echo "<td>" . "
-			<img src='$image' height=200px width=200px>" . "</td>";
+			<img src='$image' height=150px width=150px>" . "</td>";
 			echo "<td>" . $row['venue_name'] . "</td>";
 			echo "<td>" . $row['day'] . "</td>";
 			echo "<td>" . $row['description'] . "</td>";
