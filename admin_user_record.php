@@ -9,7 +9,7 @@ $admin_id = $_SESSION["admin_id"];
 <html lang="en">
 
 <head>
-	<title> Registration </title>
+	<title> Expert.com </title>
 	<meta charset ="utf-8">
 	<meta name="author" content="Alvin Chua">
 	<meta name="descrtiption" content="training record">
