@@ -2,147 +2,152 @@
 <html lang="en">
 
 <head>
-	<title> ETMP Registration </title>
+	<title> Account Registration </title>
 	<meta charset ="utf-8">
 	<meta name="author" content="Gillian Tan">
-	<meta name="descrtiption" content="ETMP registration">
-	<meta name="keywords" content="ETMP, account registration">
-	<link rel="stylesheet" href="style/style.css">
+	<meta name="descrtiption" content="ETMP login">
+	<meta name="keywords" content="ETMP, login">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<!-- font icon -->
+	<link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+	
+	<!-- main css -->
+	<link rel="stylesheet" href="css/sign.css">
 </head>
 
-<header>
-		
-	<!-- ETMP logo -->	
-	<img src="image/logo.png" alt="logo" class ="logo" width=10% height=auto>
-	
-	
-	<nav class="topnav">
-	<ul class="nav-links">
-            <li>
-                <a class="nav-link" href="homepage.html">Home</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">Training</a>
-            </li>
-			<li>
-                <a class="nav-link" href="#">About</a>
-            </li>
-            <li>
-                <a class="nav-link" href="login.php">Sign In</a>
-            </li>
-        </ul>
-	</nav>
-	<a class="nav-link-active" href="registration.html"><button class="create-button">Create Account</button></a>
-
-
-
-</header>
-
 <body>
-<?php
-session_start();
-	//declare variables
-	$name = $email = $pass = $repeat = "";
-	$nameer = $emailer = $passer = $confirmer = "";
-	
-	$conn = mysqli_connect("localhost","root","","portal_database");		// Connect to database
-if(isset($_POST["register_acc"])) {  
 
-	$nameer = NameCheck();							// Checking name input
-	$emailer = EmailCheck();							// Checking email input
-	$passer = PasswordCheck();							// Checking password input
-	$confirmer = ConfirmCheck();						// Checking confirm password input
-	if($nameer=="" && $emailer=="" && $passer=="" && $confirmer=="")		// If the string is empty then it mean no error
-	{		
-		$name = $_POST["name"];
-		$email = $_POST["email"];
-		$pass = $_POST["pass"];
-		$pass = hash('sha256',$pass);
-		// Insert the record
-		$adding= "INSERT INTO users (user_name, user_email, password) VALUES 
-		('$name','$email','$pass');";
-		$queryResult=mysqli_query($conn,$adding);
-		$query = "SELECT * FROM users WHERE user_email='$email'";	// Check if the the email exist in the database
-		$results= mysqli_query($conn, $query);
-		$row = mysqli_fetch_assoc($results);
-		// Assign the Session variable so the page it direct can recieve the info
-		$_SESSION["user_name"] = $row["user_name"];
-		$_SESSION["user_id"] = $row["user_id"];
-		$_SESSION["user_email"] = $row["user_email"];
-		header("Location: add_personal_detail.php");
+	<?php
+	session_start();
+		//declare variables
+		$name = $email = $pass = $repeat = "";
+		$nameer = $emailer = $passer = $confirmer = "";
 		
-		
-	}
-}
+		$conn = mysqli_connect("localhost","root","","portal_database");		// Connect to database
+	if(isset($_POST["register_acc"])) {  
 
-function NameCheck()
-{
-	$name = $_POST["name"];
-	if (!preg_match ("/^[a-zA-Z\s]+$/",$name)){			// Checking the name format, it can only contain letter
-		return "Name can only contain letter ";
-	}
-		
-	
-}
-
-function EmailCheck()
-{
-	$email = $_POST["email"];
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {		// Check email input, it must fit the standard email format
-      return "Invalid email format ";
-	}
-	else {
-		$mysqli = mysqli_connect("localhost","root","","portal_database");
-		$query= "SELECT * FROM users WHERE user_email='$email'";
-		$results= mysqli_query($mysqli, $query);
-		// Checking if the same email already exist in the database
-		if((mysqli_num_rows($results))>0)
-		{
-			return "The input mail already exist";
+		$nameer = NameCheck();							// Checking name input
+		$emailer = EmailCheck();							// Checking email input
+		$passer = PasswordCheck();							// Checking password input
+		$confirmer = ConfirmCheck();						// Checking confirm password input
+		if($nameer=="" && $emailer=="" && $passer=="" && $confirmer=="")		// If the string is empty then it mean no error
+		{		
+			$name = $_POST["name"];
+			$email = $_POST["email"];
+			$pass = $_POST["pass"];
+			$pass = hash('sha256',$pass);
+			// Insert the record
+			$adding= "INSERT INTO users (user_name, user_email, password) VALUES 
+			('$name','$email','$pass');";
+			$queryResult=mysqli_query($conn,$adding);
+			$query = "SELECT * FROM users WHERE user_email='$email'";	// Check if the the email exist in the database
+			$results= mysqli_query($conn, $query);
+			$row = mysqli_fetch_assoc($results);
+			// Assign the Session variable so the page it direct can recieve the info
+			$_SESSION["user_name"] = $row["user_name"];
+			$_SESSION["user_id"] = $row["user_id"];
+			$_SESSION["user_email"] = $row["user_email"];
+			header("Location: add_personal_detail.php");
+			
+			
 		}
 	}
-}
 
-function PasswordCheck()
-{
-	$pass = $_POST["pass"];
-	if (preg_match('/^[a-zA-Z0-9]+/', $pass) == false) {	// Check password input, it must only contain letters and numbers
-      return "Invalid Password format";
-	}
-}
-
-function ConfirmCheck()
-{	// Checking if teh confirm password input is exactly match the password input
-	$confirm = $_POST["repeat"];
-	$pass = $_POST["pass"];
-	if ($confirm != $pass)
+	function NameCheck()
 	{
-		return "The confirm password and the password does not match";
+		$name = $_POST["name"];
+		if (!preg_match ("/^[a-zA-Z\s]+$/",$name)){			// Checking the name format, it can only contain letter
+			return "Name can only contain letter ";
+		}
+			
+		
 	}
-}
 
-?>
-	<!-- registration form -->
-	<form action="registration.php" method="post">
-		<div class="container">
-			<h1>Sign Up</h1>
-			<hr>
-			<br><br><label for="name"><b>Name</b></label>
-			<input type="name" placeholder="Enter Name" name="name" id="name" required><span style="color:red"><?php echo $nameer ?></span><br>
+	function EmailCheck()
+	{
+		$email = $_POST["email"];
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {		// Check email input, it must fit the standard email format
+		  return "Invalid email format ";
+		}
+		else {
+			$mysqli = mysqli_connect("localhost","root","","portal_database");
+			$query= "SELECT * FROM users WHERE user_email='$email'";
+			$results= mysqli_query($mysqli, $query);
+			// Checking if the same email already exist in the database
+			if((mysqli_num_rows($results))>0)
+			{
+				return "The input mail already exist";
+			}
+		}
+	}
+
+	function PasswordCheck()
+	{
+		$pass = $_POST["pass"];
+		if (preg_match('/^[a-zA-Z0-9]+/', $pass) == false) {	// Check password input, it must only contain letters and numbers
+		  return "Invalid Password format";
+		}
+	}
+
+	function ConfirmCheck()
+	{	// Checking if teh confirm password input is exactly match the password input
+		$confirm = $_POST["repeat"];
+		$pass = $_POST["pass"];
+		if ($confirm != $pass)
+		{
+			return "The confirm password and the password does not match";
+		}
+	}
+	?>
 	
-			<label for="email"><b>Email</b></label>
-			<input type="email" placeholder="Enter Email" name="email" id="email" required><span style="color:red"><?php echo $emailer ?></span><br>
-
-			<label for="pass"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="pass" id="pass" required><span style="color:red"><?php echo $passer ?></span><br>
-
-			<label for="repeat"><b>Repeat Password</b></label>
-			<input type="password" placeholder="Repeat Password" name="repeat" id="repeat" required><span style="color:red"><?php echo $confirmer ?></span><br>
-			<hr>
-			<p>By creating an account, you are agreeing to our <a href="#">Terms & Conditions</a>.</p>
-
-			<button type="submit" class="registerbtn" name="register_acc">Register</button>
-		</div>
+	<form action="registration.php" method="post">
+	<div class="main">
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" required/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="#" class="signup-image-link">I am already a member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 	</form>
-	</body>
+
+
+	<!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+	
+</body>
 </html>
