@@ -46,20 +46,20 @@ if(isset($_POST['login'])) {
 
 	<form action="admin_login.php" method="post">
 		<!-- admin login form -->
-		<div class="container">
-			<h1>Log in</h1>
+		<div class="center">
+			<h1>Admin Log in</h1>
 
 			<hr>
 	
 			<label for="email"><b>Email</b></label>
-			<input type="email" placeholder="Enter Email" name="email" id="email" required><?php echo $errEmail ?><br> 
+			<input type="email" placeholder="Admin Email" name="email" id="email" required><?php echo $errEmail ?><br> 
 
 			<label for="pass"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="pass" id="pass" required><?php echo $errPass ?>
+			<input type="password" placeholder="Admin Password" name="pass" id="pass" required><?php echo $errPass ?>
 
 			<hr>	
 			<p><a href="#">Forgot password</a></p>
-			<p><a href="admin_registration.php">Register new account</a></p>
+			<p><a href="admin_registration.php">Register new admin account</a></p>
 
 			<button type="submit" class="loginbtn" name="login">Log In</button>
 		</div>

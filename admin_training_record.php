@@ -9,7 +9,7 @@ $admin_id = $_SESSION["admin_id"];
 <html lang="en">
 
 <head>
-	<title> Registration </title>
+	<title> Expert.com </title>
 	<meta charset ="utf-8">
 	<meta name="author" content="Alvin Chua">
 	<meta name="descrtiption" content="training record">
@@ -96,10 +96,10 @@ function NameCheck()
 			<label for="tname"><b>Training Name</b></label>
 			<input type="name" placeholder="Training Name" name="tname" id="tname" value="<?php echo $tnamer;?>" required><br>
 
-			<label for="tdesc"><b>Training Description</b></label>
+			<label for="tdesc"><b>Description</b></label>
 			<input type="name" placeholder="About the training" name="tdesc" id="tdesc" value="<?php echo $tdescr;?>" required><br>
 			
-			<label for="tfee"><b>Training Fee</b></label>
+			<label for="tfee"><b>Fee</b></label>
 			<input type="name" placeholder="Fee of training" name="tfee" id="tfee" value="<?php echo $tfeer;?>" required><br>
 			
 			<label for="sdate"><b>Starting Date</b></label>

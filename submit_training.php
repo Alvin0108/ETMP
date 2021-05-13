@@ -27,11 +27,6 @@ if(isset($_POST["confirm"])) {
 		$add= "INSERT INTO registration (user_id,training_id,training_name,register_date,training_date,training_mode) VALUES ('$user_ID','$tid','$tname','$date','$tdate','$tmode')";
 		$queryResult = mysqli_query($conn,$add);
 		$user_training_check = "<span style='color:green'>You success register </span>";
-		//Select registration id
-		$sql = "SELECT * FROM registration";
-		$result = mysqli_query($conn,$sql);
-		$row = mysqli_fetch_assoc($result);
-		$_SESSION["rid"] = $row["register_id"];
 	}
 }
 
@@ -73,7 +68,8 @@ function TrainingCheck()
 		<br/><br/><br/>
 		<div class="final_confirm">
 			<?php echo $user_training_check . $tname; ?><br/><br/>
-			<a href="search.php"class="return"><i class="fa fa-hand-o-right"> Return to Training Search </i></a>
+			<a href="search.php"class="return"><i class="fa fa-hand-o-right"> Return to Training Search </i></a> <br/>
+			<a href="venue.php"class="return"><i class="fa fa-hand-o-right"> Venue Page </i></a> <br/>
 		</div>
 		<br/><br/><br/>
 		<hr/>

@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	$user_email = $user_ID = $t_date = "";
+	$rid = $user_email = $user_ID = $t_date = "";
 	$user_email = $_SESSION["user_email"];
 	$user_ID = $_SESSION["user_id"];
 	$rid = $_SESSION["rid"];
@@ -36,7 +36,7 @@
 <html lang="en">
 
 <head>
-	<title> Venue Selection </title>
+	<title> Modify Venue </title>
 	<meta charset ="utf-8">
 	<meta name="descrtiption" content="php">
 	<meta name="keywords" content="ETMP">
@@ -58,6 +58,8 @@
 			
 				<fieldset>
 				<legend>Venue Information</legend>
+					<label>Registration ID: </label>
+					<input type="text" id="reg" name="reg" value="<?php echo $rid ?>" disabled><br><br>
 					<label>Venue ID: </label>
 					<input type="text" id="code" name="code" value="<?php echo $v_id ?>" disabled><br><br>
 					<label>Venue Name: </label>

@@ -2,7 +2,22 @@
 
 <?php 
 	session_start();
-	$_SESSION["rid"] = $rid;
+    //declare variables
+    $user_training_check = $venues_search  = "";
+    $user_email = $user_ID = $tid = $rid= "";
+
+    $user_email = $_SESSION["user_email"];
+    $user_ID = $_SESSION["user_id"];
+    $tid = $_SESSION["tid"];
+
+    $_SESSION["rid"] = $rid;
+
+    //Select registration id
+    $conn = mysqli_connect("localhost","root","","portal_database");
+    $sql = "SELECT * FROM registration WHERE user_id='$user_ID' AND training_id='$tid'";
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+    $_SESSION["rid"] = $row["register_id"];
 ?>
 
 <!--search training with filter function-->
@@ -81,7 +96,6 @@
 	
 	<h1 align="center"> Select one of the venue <?php echo $rid ?> </h1> <br/><br/>
 		<?php 
-		$count = 1;
 		echo "<table class='center'>
 		<tr>
 		<th>Room ID </th>
@@ -95,11 +109,12 @@
 		while($row = mysqli_fetch_array($search_result))
 		{
 			$id = $row['venue_id'];
-			$image = "image/room" . (string)$count . ".jpg";
+			$image = $row['image'];
+			$image = "image/" . $image;
 			echo "<tr>";
 			echo "<td>" . $id . "</td>";
 			echo "<td>" . "
-			<img src='$image' height=200px width=200px>" . "</td>";
+			<img src='$image' height=150px width=150px>" . "</td>";
 			echo "<td>" . $row['venue_name'] . "</td>";
 			echo "<td>" . $row['day'] . "</td>";
 			echo "<td>" . $row['description'] . "</td>";
@@ -108,7 +123,6 @@
 			<input type=submit class='Select' name=select value=SELECT>
 			</form></td>";
 			echo "</tr>";
-			$count++;
 		}
 		echo "</table>";
 		?>	
