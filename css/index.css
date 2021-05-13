@@ -190,6 +190,24 @@ body {
   }
 }
 
+.main-button-slider{
+	font-size: 13px;
+	border-radius: 20px;
+	padding: 12px 20px;
+	background-color: #f55858;
+	text-transform: uppercase;
+	color: #fff;
+	letter-spacing: 0.25px;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+
+.main-button-slider:hover{
+	background-color: #0088e8;
+}
+
 a.main-button-slider {
   font-size: 13px;
   border-radius: 20px;
@@ -1303,6 +1321,7 @@ footer .copyright {
   letter-spacing: 0.88px;
   text-transform: capitalize;
   text-align: center;
+  position: center;
 }
 
 @media (max-width: 991px) {
