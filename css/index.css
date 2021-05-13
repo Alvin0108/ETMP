@@ -1194,6 +1194,8 @@ contact
   line-height: 26px;
 }
 
+
+
 .contact-text {
   font-weight: 400;
   font-size: 14px;
@@ -1262,7 +1264,7 @@ contact
 
 .contact-form input,
 .contact-form textarea {
-  color: #777;
+  color: white;
   font-size: 14px;
   border: none;
   width: 100%;
