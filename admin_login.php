@@ -46,7 +46,7 @@ if(isset($_POST['login'])) {
 
 	<form action="admin_login.php" method="post">
 		<!-- admin login form -->
-		<div class="container">
+		<div class="center">
 			<h1>Admin Log in</h1>
 
 			<hr>

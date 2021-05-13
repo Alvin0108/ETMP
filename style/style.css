@@ -27,6 +27,8 @@
 	/* Add a blue text color to links */
 	a {
 	  color: #12232E;
+	  font-family: 'Poppins', sans-serif;
+	  text-decoration:none;
 	}
 	
 	/* Button used to open the chat form - fixed at the bottom of the page */
@@ -126,8 +128,7 @@
 	}
 	
 	ul,
-	li, 
-	a 
+	li
 	{
 		font-family: 'Poppins', sans-serif;
 		font-weight: 400;
@@ -202,10 +203,6 @@ table.center{
 	margin: auto;
 }
 
-a.return {
-  color: 12232E;
-}
-
 /*Home.php*/
 .button {
 	padding: 16px 32px;
@@ -273,7 +270,7 @@ hr {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 10%;
   opacity: 0.9;
 }
 
@@ -288,7 +285,7 @@ hr {
 	margin: 8px 0;
 	border: none;
 	cursor: pointer;
-	width: 100%;
+	width: 10%;
 	opacity: 0.9;
 }
 

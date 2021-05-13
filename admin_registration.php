@@ -80,7 +80,7 @@ function ConfirmCheck()
 ?>
 	<!-- registration form -->
 	<form action="admin_registration.php" method="post">
-		<div class="container">
+		<div class="center">
 			<h1>Sign Up as Admin</h1>
 			<hr>	
 			<label for="email"><b>Email</b></label>
