@@ -1,5 +1,5 @@
 <!-- ETMP logo -->	
-<a class="nav-link" href="index.html"><img src="image/logo.png" alt="logo" class ="logo" width=10% height=auto></a>
+<img src="image/logo.png" alt="logo" class ="logo" width=10% height=auto>
 	
 	
 <nav class="topnav">
