@@ -1,21 +1,20 @@
-<nav class="main-nav">
-    
-	<!-- Logo Start -->
-    <a href="#" class="logo">Expert.com</a>
-     <!-- Logo End -->
-	 
-    <!-- Menu Start -->
-    <ul class="nav">
-        <li class="scroll-to-section"><a href="#welcome" class="active">Home</a></li>
-        <li class="scroll-to-section"><a href="#about">About</a></li>
-		<li class="scroll-to-section"><a href="#contact-us">Contact Us</a></li>
-        <li ><a href="login.php">Sign In</a></li>
-        <li ><a href="registration.php">Create Account</a></li>
-    </ul>
+<!-- ETMP logo -->	
+<a class="nav-link" href="index.html"><img src="image/logo.png" alt="logo" class ="logo" width=10% height=auto></a>
 	
-    <a class='menu-trigger'>
-    <span>Menu</span>
-    </a>
-    <!-- Menu End -->
+	
+<nav class="topnav">
+	<ul class="nav-links">
+		<li>
+			<a class="nav-link" href="index.html">Home</a>
+		</li>
+		<li>
+			<a class="nav-link" href="search.php">Training Search</a>
+		</li>
+		<li>
+			<a class="nav-link" href="profile.php">Profile</a>
+		</li>
+		<li>
+			<a class="nav-link" href="logout.php">Log out</a>
+		</li>
+	</ul>
 </nav>
-					
