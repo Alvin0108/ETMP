@@ -35,7 +35,7 @@ $user_name = $_SESSION["user_name"];
 	
 	<!-- add info form -->
 	<form action="add_personal_detail.php" method="post">
-		<div class="container">
+		<div class="center">
 			<h1>Personal Detail</h1>
 			<h2>Please fill in to complete basic information</h2>
 			<hr>
@@ -47,11 +47,11 @@ $user_name = $_SESSION["user_name"];
 			<input type="email" name="email" id="email" value="<?php echo $user_email;?>" disabled><br>
 
 			<label for="desc"><b>About yourself</b></label>
-			<input type="text" placeholder="Enter some descrtiption..." name="desc" id="desc" required /><br><br>
+			<input type="desc" placeholder="Enter some descrtiption..." name="desc" id="desc" required /><br>
 			
-			<label for="gender"><b>Gender</b></label><br/>
+			<label for="gender"><b>Gender</b></label>
 			<input type="radio" id="male" name="gender" value="male" required>
-			<label for="male">Male</label><br>
+			<label for="male">Male</label>
 			<input type="radio" id="female" name="gender" value="female" required>
 			<label for="female">Female</label><br>
 
