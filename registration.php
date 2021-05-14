@@ -25,7 +25,7 @@
 		$nameer = $emailer = $passer = $confirmer = "";
 		
 		$conn = mysqli_connect("localhost","root","","portal_database");		// Connect to database
-	if(isset($_POST["register_acc"])) {  
+	if(isset($_POST["signup"])) {  
 
 		$nameer = NameCheck();							// Checking name input
 		$emailer = EmailCheck();							// Checking email input
