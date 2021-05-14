@@ -127,9 +127,6 @@ function AmountCheck()
 	
 			<label for="name"><b>Name</b></label>
 			<input type="name" placeholder="Enter name" name="name" id="name" required><span style="color:red"><?php echo $namec ?></span><br>
-
-			<label for="amount"><b>Amount</b></label>
-			<input type="amount" placeholder="Enter Amount(RM)" name="amount" id="amount" required><span style="color:red"><?php echo $amountc ?></span><br>
 			<hr>
 			
 			<button type="submit" class="continuebtn" name="card_validation">Continue</button>
