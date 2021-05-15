@@ -25,7 +25,7 @@
 		$nameer = $emailer = $passer = $confirmer = "";
 		
 		$conn = mysqli_connect("localhost","root","","portal_database");		// Connect to database
-	if(isset($_POST["register_acc"])) {  
+	if(isset($_POST["signup"])) {  
 
 		$nameer = NameCheck();							// Checking name input
 		$emailer = EmailCheck();							// Checking email input
@@ -123,8 +123,8 @@
                                 <input type="password" name="pass" id="pass" placeholder="Password"/><?php echo $passer ?>
                             </div>
                             <div class="form-group">
-                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/><?php echo $confirmer ?>
+                                <label for="rerepeatpass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="repeat" id="repeat" placeholder="Repeat your password"/><?php echo $confirmer ?>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required/>
@@ -136,7 +136,7 @@
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
+                        <figure><img src="image/signup-image.jpg" alt="sing up image"></figure>
                         <a href="login.php" class="signup-image-link">I am already a member</a>
                     </div>
                 </div>

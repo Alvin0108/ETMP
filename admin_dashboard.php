@@ -35,7 +35,6 @@ function filter($query)
 </header>
 <body>
 	<h2 class="center">Dashboard</h2>
-	<p class="center"> > Welcome <?php echo $admin_email; ?> and your ID is <?php echo $admin_id; ?> <</p><br/>
             <table class="center">
 			  <caption>Latest 5 User Registration Record (<a href="searchRegister.php">View more</a>)</caption>
                 <tr>
