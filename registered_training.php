@@ -18,7 +18,20 @@ $user_ID = $_SESSION["user_id"];
 		$filter_data = mysqli_query($conn, $query);
 		return $filter_data;
 	}
-
+	
+if(isset($_GET['id'])){
+	$ID = $_GET['id']
+	
+	$query2 = "SELECT'FROM registration WHERE training_id = '{$ID}' AND user_ID = '{$user_ID}'";
+	result = filter($query2);
+	$row = mysqli_fetch_assoc($search_result);
+	$RID = $row['register_id'];
+	$sql2 = "DELETE FROM register_venue WHERE register_id = '{$RID}'";
+	$result = filter($sql2);
+	$sql = "DELETE FROM registration WHERE training_id = '{$ID}' AND user_ID = '{$user_ID}'";
+	$result = filter($sql);
+	
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +57,7 @@ $user_ID = $_SESSION["user_id"];
 		<th>Training Id</th>
 		<th>Training Name</th>
 		<th>Register date</th>
+		<th>Training cancel</th>
 		</tr>";
 		
 		while($row = mysqli_fetch_array($search_result))
@@ -52,6 +66,10 @@ $user_ID = $_SESSION["user_id"];
 			echo "<td>" . $row['training_id'] . "</td>";
 			echo "<td>" . $row['training_name'] . "</td>";
 			echo "<td>" . $row['register_date'] . "</td>";
+			echo "<td><form action=registered_training.php>
+			<input name=id type=hidden value='".row['training_id']."'>
+			<input type=submit value=Cancel>
+			</form></td>;
 			echo "</tr>";
 		}
 		echo "</table>";
