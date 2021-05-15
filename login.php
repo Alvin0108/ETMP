@@ -24,7 +24,7 @@
 	session_start();
 	$email = $password = "";
 	$errEmail = $errPass = "";
-	if(isset($_POST['login'])) {		
+	if(isset($_POST['signin'])) {		
 		$email = $_POST['email'];
 		$password = hash('sha256',$_POST["pass"]);
 		$conn = mysqli_connect("localhost","root","","portal_database");		// Connect to database
