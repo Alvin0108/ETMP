@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title> ETMP Registration </title>
+	<title> Online Banking </title>
 	<meta charset ="utf-8">
 	<meta name="author" content="Chen Jun Xue">
 	<meta name="descrtiption" content="ETMP Online Banking">
@@ -69,7 +69,7 @@ function AmountCheck()
 
 ?>
 
-	<form action="OnlineBanking.php" method="post">
+	<form action="ob.php" method="post">
 		<div class="container">
 			<h1>PAYMENT</h1>
 
