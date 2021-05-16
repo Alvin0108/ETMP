@@ -68,8 +68,13 @@ function TrainingCheck()
 		<br/><br/><br/>
 		<div class="final_confirm">
 			<?php echo $user_training_check . $tname; ?><br/><br/>
-			<a href="search.php"class="return"><i class="fa fa-hand-o-right"> Return to Training Search </i></a> <br/>
-			<a href="venue.php"class="return"><i class="fa fa-hand-o-right"> Venue Page </i></a> <br/>
+			<?php 
+				if($user_training_check != "You had registered"){
+					echo "<a href='search.php' class='return'><i class='fa fa-hand-o-right'> Return Training Page </i></a> <br/>";
+				}else{
+					echo "<a href='venue.php' class='return'><i class='fa fa-hand-o-right'> Venue Page </i></a> <br/>";
+				}
+			?>
 		</div>
 		<br/><br/><br/>
 		<hr/>

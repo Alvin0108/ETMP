@@ -12,29 +12,7 @@
 
 <header>
 		
-	<!-- ETMP logo -->	
-	<img src="image/logo.png" alt="logo" class ="logo" width=10% height=auto>
-	
-	
-	<nav class="topnav">
-	<ul class="nav-links">
-            <li>
-                <a class="nav-link" href="homepage.html">Home</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">Training</a>
-            </li>
-			<li>
-                <a class="nav-link" href="#">About</a>
-            </li>
-            <li>
-                <a class="nav-link" href="login.php">Sign In</a>
-            </li>
-        </ul>
-	</nav>
-	<a class="nav-link-active" href="registration.html"><button class="create-button">Create accnoount</button></a>
-
-
+<?php include "navigation.php";?>
 
 </header>
 
@@ -114,7 +92,7 @@ function AmountCheck()
 			<input type="amount" placeholder="Enter Amount(RM)" name="amount" id="amount" required><span style="color:red"><?php echo $amountc ?></span><br>
 			<hr>
 			
-			<button type="submit" class="continuebtn" name="onlinebanking">Continue</button>
+			<button type="submit" class="loginbtn" name="onlinebanking">Continue</button>
 		</div>
 	</form>
 	</body>

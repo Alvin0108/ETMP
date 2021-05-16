@@ -101,7 +101,7 @@ function EmailCheck()
 			<label for="female">Female</label>
 			<hr>
 
-			<button type="submit" name="add">Add Record</button>
+			<button type="submit" class="loginbtn" name="add">Add Record</button>
 		</div>
 	</form>
 	</body>

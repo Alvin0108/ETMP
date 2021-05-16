@@ -80,7 +80,7 @@
 						<option value="3.00pm to 5.00pm">3.00pm to 5.00pm</option>
 						<option value="6.00pm to 8.00pm">6.00pm to 8.00pm</option>
 						</select><br><br>
-					<button type="submit" class="center" name="confirm"><i class="fa fa-check"> Confirm </i></button><br/><br/>
+					<button type="submit" class="confirmbtn" name="confirm"><i class="fa fa-check"> Confirm </i></button><br/><br/>
 				</fieldset>
 				
 			<br/><br/>

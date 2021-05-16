@@ -102,7 +102,7 @@ function NameCheck()
 			<?php echo $msg ?><br/>
 			<br/><br/>
 		
-			<button type="submit" name="add">Add Venue Record</button>
+			<button type="submit" class="loginbtn" name="add">Add Record</button>
 		</div>
 	</form>
 	</body>

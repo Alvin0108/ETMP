@@ -43,7 +43,7 @@
 			?>
 		</select><br><br>
 
-	<input type="submit" name="submit" value="Validate">
+	<input type="submit" class="loginbtn" name="submit" value="Validate">
 
 	</form>
 	

@@ -13,10 +13,10 @@
 
 <body>
 <br/><br/>
-<h1>Welcome to <br/>Expert Training Portal</h1>
+<h1 class="center">Welcome to <br/>Expert Training Portal</h1>
 <br/><br/>
 <div class="center">
-	<a href="login.php"><button class="button user" >Login as user </button></a><br/>
+	<a href="index.html"><button class="button user" > User View </button></a><br/>
 	<a href="admin_login.php"><button class="button user" >Login as admin</button></a>
 </div>
 

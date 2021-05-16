@@ -78,7 +78,7 @@
 					<label>End Date: </label>	
 					<input type="text" id="edate" name="edate" value="<?php echo $e_date ?>" disabled><br><br>
 					<br/>
-					<button type="submit" class="center" name="confirm"><i class="fa fa-check"> Confirm </i></button><br/><br/>
+					<button type="submit" class="confirmbtn" name="confirm"><i class="fa fa-check"> Confirm </i></button><br/><br/>
 				</fieldset>
 				
 			<br/><br/>
