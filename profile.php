@@ -218,6 +218,7 @@ $user_name = $_SESSION["user_name"];
 		<div class="center">
 			<a href="account.php" class="main-button-slider">Edit Account</a>
 			<a href="registered_training.php" class="main-button-slider">View Registered Training</a>
+			<a href="testcc.php" class="main-button-slider">Validate Credit Card</a>
 		</div>
 		
         </div>
