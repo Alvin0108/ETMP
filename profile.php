@@ -53,7 +53,7 @@ $user_name = $_SESSION["user_name"];
 						
                         <!-- Menu Start -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#welcome">Training Search</a></li>
+                            <li class="scroll-to-section"><a href="search.php">Training Search</a></li>
                             <li ><a href="profile.php" >Profile</a></li>
                             <li ><a href="logout.php">Log Out</a></li>
                         </ul>
