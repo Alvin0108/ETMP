@@ -69,7 +69,7 @@ function AmountCheck()
 
 ?>
 
-	<form action="ob.php" method="post">
+	<form action="payment_success.php" method="post">
 		<div class="container">
 			<h1>PAYMENT</h1>
 
