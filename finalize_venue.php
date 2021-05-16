@@ -63,7 +63,7 @@ function RVCheck()
 			<?php echo $rv_check ?><br/><br/>
 			<a href="search.php"class="return"><i class="fa fa-hand-o-right"> Return to Training page </i></a><br/>
 			<a href="OnlineBanking.php" class="return"><i class="fa fa-bank"> Pay by Online Banking </i></a><br/>
-			<a href="testcc.php" class="return"><i class="fa fa-credit-card"> Pay by Credit Card </i></a>
+			<a href="ccpayment.php" class="return"><i class="fa fa-credit-card"> Pay by Credit Card </i></a>
 		</div>
 		<br/><br/><br/>
 		<hr/>
