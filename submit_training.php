@@ -69,10 +69,12 @@ function TrainingCheck()
 		<div class="final_confirm">
 			<?php echo $user_training_check . $tname; ?><br/><br/>
 			<?php 
-				if($user_training_check != "You had registered"){
-					echo "<a href='search.php' class='return'><i class='fa fa-hand-o-right'> Return Training Page </i></a> <br/>";
-				}else{
+				if($user_training_check == "<span style='color:green'>You success register </span>")
+				{
 					echo "<a href='venue.php' class='return'><i class='fa fa-hand-o-right'> Venue Page </i></a> <br/>";
+				}else if($user_training_check == "<span style='color:red'>You had registered </span>")
+				{
+					echo "<a href='search.php' class='return'><i class='fa fa-hand-o-right'> Return Training Page </i></a> <br/>";
 				}
 			?>
 		</div>
