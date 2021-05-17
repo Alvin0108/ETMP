@@ -13,7 +13,6 @@
 	<!-- font icon -->
 	<link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 	
-	<!-- main css -->
 	<link rel="stylesheet" href="css/sign.css">
 	
 </head>
@@ -60,7 +59,7 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="image/signin-image.jpg" alt="sing up image"></figure>
+                        <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
                         <a href="registration.php" class="signup-image-link">Create an account</a>
                     </div>
 

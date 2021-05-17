@@ -10,11 +10,7 @@
 	<link rel="stylesheet" href="style/style.css">
 </head>
 
-<header>
-		
-<?php include "navigation.php";?>
 
-</header>
 
 <body>
 <?php

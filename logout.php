@@ -26,6 +26,6 @@ session_unset();
 // destroy the session
 session_destroy();
 
-header("Location: home.php");
+header("Location: index.html");
 
 ?>

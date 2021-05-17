@@ -14,7 +14,7 @@ $user_name = $_SESSION["user_name"];
 	<meta charset ="utf-8">
 	<meta name="descrtiption" content="php">
 	<meta name="keywords" content="ETMP">
-	<link rel="stylesheet" href="style/style.css">
+	<link rel="stylesheet" href="css/sign.css">
 </head>
 	<body>
 	<?php
@@ -59,6 +59,10 @@ $user_name = $_SESSION["user_name"];
 
 			<button type="submit" class="registerbtn" name="add_info">Add account information</button>
 		</div>
+		
+		
+
+		
 	</form>
 	</body>
 </html>

@@ -35,20 +35,63 @@ if(isset($_GET['id'])){
 ?>
 
 <!DOCTYPE html>
+<html lang="en">
 <html>
     <head>
 		<meta charset="utf-8" />
 		<meta name="description" content="DP2" />
-		<meta name="keywords" content="PHP" />
-		<link rel="stylesheet" href="style/style.css">
+		<meta name="keywords" content="PHP, training, registered, registered training, ETMP, Expert.com, view, viewing" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/owl-carousel.css">
 		<title>Registered Training</title>
     </head>
-	<header>
-	<!--navigation-->
-	<?php include "navigation.php";?>
-
-	</header>
+	
+	
     <body>   
+	
+		<!-- Header Area Start -->
+		<header class="header-area header-sticky">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+					
+						<nav class="main-nav">
+							<!-- Logo Start -->
+							<a href="#" class="logo">Expert.com</a>
+							<!-- Logo End -->
+							
+							<!-- Menu Start -->
+							<ul class="nav">
+								<li class="scroll-to-section"><a href="search.php">Training Search</a></li>
+								<li ><a href="profile.php" >Profile</a></li>
+								<li ><a href="logout.php">Log Out</a></li>
+							</ul>
+							<a class='menu-trigger'>
+								<span>Menu</span>
+							</a>
+							<!-- Menu End -->
+						</nav>
+						
+					</div>
+				</div>
+			</div>
+		</header>
+	
+		
+		
+		<br><br><br><br>
+		<h2> Profile / Registered Training </h2>
+		<style>
+		h2{
+			
+			margin-left:200px;
+		}
+		</style>
 		<br><br>
 		<!--Display training-->
 		<?php 
@@ -68,11 +111,77 @@ if(isset($_GET['id'])){
 			echo "<td>" . $row['register_date'] . "</td>";
 			echo "<td><form action=registered_training.php>
 			<input name=id type=hidden value='".$row['training_id']."'>
-			<input type=submit value=Cancel>
+			<input type=submit value=Cancel class=Cancel>
 			</form></td>";
 			echo "</tr>";
 		}
 		echo "</table>";
 		?>	
+		
+		<style>
+		th, td{
+			padding: 15px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+		
+		tr:hover{
+			background: #f5f5f5;
+		}
+		
+		tr:nth-child(even){
+			background-color: f2f2f2;
+		}
+		
+		th{
+			background-color:#6dabe4;
+			color: white;
+		}
+		
+		.Cancel{
+			display: inline-block;
+			background: #6dabe4;
+			color: #fff;
+			border-bottom: none;
+			width: auto;
+			padding: 15px 39px;
+			border-radius: 5px;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-o-border-radius: 5px;
+			-ms-border-radius: 5px;
+			margin-top: 25px;
+			cursor: pointer;
+		}
+  
+		.Cancel:hover {
+			background: #4292dc; 
+		}
+		
+		table.center{
+			margin-left:auto;
+			margin-right:auto;
+			padding:10px;
+			width:50%;
+			padding-bottom: 50px;
+		}
+		</style>
+		
+		 <!-- jQuery -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="js/owl-carousel.js"></script>
+    <script src="js/scrollreveal.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imgfix.min.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="js/custom.js"></script>
     </body>
 </html>

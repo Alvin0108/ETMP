@@ -17,11 +17,25 @@
 </head>
 
 <body>
-
+	<?php
+	//Declare variable
+	$desc = $gender = "";
+	
+	if(isset($_POST['add_info'])) {		
+	$desc = $_POST['desc'];
+	$gender = $_POST['gender'];
+	$sql = "UPDATE users SET description='$desc', gender='$gender' WHERE user_email='$user_email'";
+	$queryResult=mysqli_query($conn,$sql);	
+	
+	header("Location: search.php");
+	}
+	?>
+	
 	<?php
 	session_start();
 		//declare variables
 		$name = $email = $pass = $repeat = "";
+		$desc = $gender = "";
 		$nameer = $emailer = $passer = $confirmer = "";
 		
 		$conn = mysqli_connect("localhost","root","","portal_database");		// Connect to database
@@ -37,8 +51,10 @@
 			$email = $_POST["email"];
 			$pass = $_POST["pass"];
 			$pass = hash('sha256',$pass);
+			$pass = $_POST["desc"];
+			$pass = $_POST["gender"];
 			// Insert the record
-			$adding= "INSERT INTO users (user_name, user_email, password) VALUES 
+			$adding= "INSERT INTO users (user_name, user_email, password, description, gender) VALUES 
 			('$name','$email','$pass');";
 			$queryResult=mysqli_query($conn,$adding);
 			$query = "SELECT * FROM users WHERE user_email='$email'";	// Check if the the email exist in the database
@@ -48,7 +64,10 @@
 			$_SESSION["user_name"] = $row["user_name"];
 			$_SESSION["user_id"] = $row["user_id"];
 			$_SESSION["user_email"] = $row["user_email"];
-			header("Location: add_personal_detail.php");
+			$_SESSION["desc"] = $row["desc"];
+			$_SESSION["gender"] = $row["gender"];
+			header("Location: search.php");
+			
 			
 			
 		}
@@ -77,7 +96,7 @@
 			// Checking if the same email already exist in the database
 			if((mysqli_num_rows($results))>0)
 			{
-				return "The input mail already exist";
+				return "This email have already been registered";
 			}
 		}
 	}
@@ -100,6 +119,9 @@
 		}
 	}
 	?>
+	
+
+
 	
 	<form action="registration.php" method="post">
 	<div class="main">
@@ -126,6 +148,25 @@
                                 <label for="rerepeatpass"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="repeat" id="repeat" placeholder="Repeat your password"/><?php echo $confirmer ?>
                             </div>
+							<div class="form-group">
+								<label for="desc"><i class="zmdi zmdi-mood"></i></label>
+								<input type="desc" placeholder="About yourself......" name="desc" id="desc" required />
+                            </div>
+							<div class="form-group">
+								<input  type="radio" id="male" name="gender" value="male" required>
+								<label class="gender-male" for="male">Male</label>
+								<input  type="radio" id="female" name="gender" value="female" required>
+								<label class="gender-female" for="female">Female</label>
+								<style>
+								.gender-male{
+									padding-bottom: 20px;
+								}
+								
+								.gender-female{
+									padding-top:20px;
+								}
+								</style>
+                            </div>
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required/>
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
@@ -136,7 +177,7 @@
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="image/signup-image.jpg" alt="sing up image"></figure>
+                        <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
                         <a href="login.php" class="signup-image-link">I am already a member</a>
                     </div>
                 </div>

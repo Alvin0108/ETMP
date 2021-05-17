@@ -29,17 +29,6 @@ $user_name = $_SESSION["user_name"];
 
 	<body>
 	
-	<!-- Preloader Starts -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- Preloader End -->
-    
-    
     <!-- Header Area Start -->
     <header class="header-area header-sticky">
         <div class="container">
@@ -87,24 +76,7 @@ $user_name = $_SESSION["user_name"];
 		
 	?>
 	
-	<!-- Welcome Area Start -->
-    <div class="welcome-area" id="welcome">
 
-        <!-- Header Text Start -->
-        <div class="header-text">
-            <div class="container">
-                <div class="row">
-                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                        <h1>Welcome</h1>
-                    </div>
-          
-                </div>
-
-        </div>
-        <!-- Header Text End -->
-    </div>
-	</div>
-    <!-- Welcome Area End -->	
 	
     <!-- Features Big Item Start -->
     <section class="section" id="about">
@@ -134,7 +106,7 @@ $user_name = $_SESSION["user_name"];
 			<style>
 			
 			input {
-			  width: 100%;
+			  width: 85%;
 			  display: block;
 			  border: none;
 			  border-bottom: 1px solid #999;

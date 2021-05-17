@@ -53,16 +53,13 @@ function RVCheck()
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<title>Finalize Venue</title>
     </head>
-	<header>
-	<!--navigation-->
-	<?php include "navigation.php";?>
-	</header>
+	
     <body>   
-			<br/><br/><br/>
+			<br/><br/><br/><br/><br/><br/>
 		<div class="final_confirm">
 			<?php echo $rv_check ?><br/><br/>
-			<a href="search.php"class="return"><i class="fa fa-hand-o-right"> Return to Training page </i></a><br/>
-			<a href="OnlineBanking.php" class="return"><i class="fa fa-bank"> Pay by Online Banking </i></a><br/>
+			<a href="search.php"class="return"><i class="fa fa-hand-o-right"> Return to Training page </i></a><br/><br/>
+			<a href="OnlineBanking.php" class="return"><i class="fa fa-bank"> Pay by Online Banking </i></a><br/><br/>
 			<a href="ccpayment.php" class="return"><i class="fa fa-credit-card"> Pay by Credit Card </i></a>
 		</div>
 		<br/><br/><br/>
