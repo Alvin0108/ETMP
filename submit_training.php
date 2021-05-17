@@ -54,16 +54,45 @@ function TrainingCheck()
 		<meta name="description" content="DP2" />
 		<meta name="keywords" content="PHP" />
 		<meta name="author" content="Alvin Chua Khai Chuen" />
-		<link rel="stylesheet" href="style/style.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- CSS Files -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/owl-carousel.css">
 		<title>Submit</title>
     </head>
-	<header>
-	<!--navigation-->
-	<?php include "navigation.php";?>
+	
+    <body>  
+		
+		<!-- Header Area Start -->
+		<header class="header-area header-sticky">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+					
+						<nav class="main-nav">
+							<!-- Logo Start -->
+							<a href="#" class="logo">Expert.com</a>
+							<!-- Logo End -->
+							
+							<!-- Menu Start -->
+							<ul class="nav">
+								<li class="scroll-to-section"><a href="search.php">Training Search</a></li>
+								<li ><a href="profile.php" >Profile</a></li>
+								<li ><a href="logout.php">Log Out</a></li>
+							</ul>
+							<a class='menu-trigger'>
+								<span>Menu</span>
+							</a>
+							<!-- Menu End -->
+						</nav>
+						
+					</div>
+				</div>
+			</div>
+		</header>
 
-	</header>
-    <body>   
+		
 		<hr/>
 		<br/><br/><br/>
 		<div class="final_confirm">
@@ -78,7 +107,29 @@ function TrainingCheck()
 				}
 			?>
 		</div>
+		<style>
+		.final_confirm{
+			text-align: center;
+		}
+		</style>
 		<br/><br/><br/>
 		<hr/>
+		
+		<!-- jQuery -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="js/owl-carousel.js"></script>
+    <script src="js/scrollreveal.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imgfix.min.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="js/custom.js"></script>
     </body>
 </html>

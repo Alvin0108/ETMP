@@ -55,7 +55,7 @@
 			$pass = $_POST["gender"];
 			// Insert the record
 			$adding= "INSERT INTO users (user_name, user_email, password, description, gender) VALUES 
-			('$name','$email','$pass');";
+			('$name','$email','$pass', '$desc', '$gender');";
 			$queryResult=mysqli_query($conn,$adding);
 			$query = "SELECT * FROM users WHERE user_email='$email'";	// Check if the the email exist in the database
 			$results= mysqli_query($conn, $query);
@@ -64,7 +64,7 @@
 			$_SESSION["user_name"] = $row["user_name"];
 			$_SESSION["user_id"] = $row["user_id"];
 			$_SESSION["user_email"] = $row["user_email"];
-			$_SESSION["desc"] = $row["desc"];
+			$_SESSION["description"] = $row["description"];
 			$_SESSION["gender"] = $row["gender"];
 			header("Location: search.php");
 			
@@ -130,7 +130,7 @@
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">Sign up</h2>
+                        <h2 class="form-title">Expert.com <br>Sign up</h2>
                         <form method="POST" class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>

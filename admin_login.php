@@ -7,7 +7,13 @@
 	<meta name="author" content="Alvin Chua">
 	<meta name="descrtiption" content="admin login">
 	<meta name="keywords" content="ETMP, login">
-	<link rel="stylesheet" href="style/style.css">
+	
+	<!-- font icon -->
+	<link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+	
+	<!-- main css -->
+	<link rel="stylesheet" href="css/sign.css">
+	
 </head>
 
 <body>
@@ -45,25 +51,50 @@ if(isset($_POST['login'])) {
 ?>
 
 	<form action="admin_login.php" method="post">
-		<!-- admin login form -->
-		<div class="center">
-			<h1>Admin Log in</h1>
+		<div class="main">
+			<!-- admin login form -->
+			<section class="sign-in">
+				<div class="container">
+					<div class="signin-content">
+						<div class="signin-image">
+							<figure><img src="images/admin-login.png" alt="sign in image"></figure>
+							<a href="admin_registration.php" class="signup-image-link">Create new admin account</a>
+						</div>
+						
+						<div class="signin-form">
+						
+							<h2 class="form-title">Expert.com <br>Admin Log in</h2>
+							
+							<form method="POST" class="register-form" id="login-form">
+							
+								<div class="form-group">
+									<label for="email"><i class="zmdi zmdi-email"></i></label>
+									<input type="email" placeholder="Enter Email" name="email" id="email" required><?php echo $errEmail ?>
+								</div>
 
-			<hr>
+								<div class="form-group">
+									<label for="pass"><i class="zmdi zmdi-lock"></i></label>
+									<input type="password" placeholder="Enter Password" name="pass" id="pass" required><?php echo $errPass ?>
+								</div>
+
+								<div class="form-group">
+									<a href="#">Forgot password</a>
+								</div>
 	
-			<label for="email"><b>Email</b></label>
-			<input type="email" placeholder="Admin Email" name="email" id="email" required><?php echo $errEmail ?><br> 
-
-			<label for="pass"><b>Password</b></label>
-			<input type="password" placeholder="Admin Password" name="pass" id="pass" required><?php echo $errPass ?>
-
-			<hr>	
-			<p><a href="#">Forgot password</a></p>
-			<p><a href="admin_registration.php">Register new admin account</a></p>
-
-			<button type="submit" class="loginbtn" name="login">Log In</button>
+								<div class="form-group">
+									<input type="submit" name="login" id="login" class="form-submit" value="Log In" required/>
+								</div>
+							</form>
+						</div>				
+					</div>
+				</div>
+			</section>
 		</div>
 	</form>
 
+	<!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+	
 </body>
 </html>

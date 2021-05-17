@@ -89,7 +89,7 @@
 		
 		<section class="section" id="about">
         <div class="container">
-        <form action="venue.php" method="post" class="check">
+        <form action="submit_training.php" method="post" class="check">
 		<div class="center">
 			<h2>Training / Training Confirmation </h2>
 			<hr>

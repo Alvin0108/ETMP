@@ -7,8 +7,12 @@
 	<meta name="author" content="Alvin Chua">
 	<meta name="descrtiption" content="admin registration">
 	<meta name="keywords" content="ETMP, account registration">
-	<link rel="stylesheet" href="style/style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<!-- font icon -->
+	<link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+	
+	<!-- main css -->
+	<link rel="stylesheet" href="css/sign.css">
 </head>
 <body>
 <?php
@@ -78,25 +82,61 @@ function ConfirmCheck()
 }
 
 ?>
-	<!-- registration form -->
+
+	
 	<form action="admin_registration.php" method="post">
-		<div class="center">
-			<h1>Sign Up as Admin</h1>
-			<hr>	
-			<label for="email"><b>Email</b></label>
-			<input type="email" placeholder="Enter Email" name="email" id="email" required><span style="color:red"><?php echo $emailer ?></span><br>
+		<div class="main">
+			<!-- registration form -->
+			<section class="signup">
+				<div class="container">
+					<div class="signup-content">
+	
+						<div class="signup-form">
+						
+							<h2 class="form-title">Expert.com <br>Admin Sign Up</h2>
+							
+							<form method="POST" class="register-form" id="register-form">	
+							
+								<div class="form-group"> 
+									<label for="email"><i class="zmdi zmdi-email"></i></label>
+									<input type="email" placeholder="Enter Email" name="email" id="email" required><span style="color:red"><?php echo $emailer ?></span>
+								</div>
 
-			<label for="pass"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="pass" id="pass" required><span style="color:red"><?php echo $passer ?></span><br>
+								<div class="form-group">
+									<label for="pass"><i class="zmdi zmdi-lock"></i></label>
+									<input type="password" placeholder="Enter Password" name="pass" id="pass" required><span style="color:red"><?php echo $passer ?></span>
+								</div>
 
-			<label for="repeat"><b>Repeat Password</b></label>
-			<input type="password" placeholder="Repeat Password" name="repeat" id="repeat" required><span style="color:red"><?php echo $confirmer ?></span><br>
-			<hr>
-			<p>By creating an account, you are agreeing to our <a href="#">Terms & Conditions</a>.</p>
-			<p>Log in as admin <i class="fa fa-hand-o-right"><a href="admin_login.php"> Login </a></i></p>
-
-			<button type="submit" class="registerbtn" name="register_acc">Register</button>
+								<div class="form-group">
+									<label for="repeat"><i class="zmdi zmdi-lock-outline"></i></label>
+									<input type="password" placeholder="Repeat Password" name="repeat" id="repeat" required><span style="color:red"><?php echo $confirmer ?></span>
+								</div>
+								
+								<div class="form-group">
+									<input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required/>
+									<label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+								</div>
+								
+								<div class="form-group">
+									<input type="submit" name="register_acc" id="register_acc" class="form-submit" value="Register" required/>
+								</div>
+							</form>
+						</div>	
+						
+						<div class="signup-image">
+							<figure><img src="images/admin-register.png" alt="sign up image"></figure>
+							<a href="admin_login.php" class="signup-image-link">Log in as admin</a>
+						</div>
+						
+					</div>
+				</div>
+			</section>
 		</div>
 	</form>
+	
+	<!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+	
 	</body>
 </html>
