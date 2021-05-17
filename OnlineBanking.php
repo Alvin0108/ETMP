@@ -71,10 +71,10 @@ function AmountCheck()
 }
 
 ?>
-
+<form action="payment_success.php" method="post">
 	<section class="section" id="about">
 		<div class="container">
-			<form action="payment_success.php" method="post">
+			
 				<div class="center">
 			
 					<h2>Payment </h2>
