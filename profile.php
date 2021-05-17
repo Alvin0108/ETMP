@@ -78,7 +78,7 @@ $user_name = $_SESSION["user_name"];
 	
 
 	
-    <!-- Features Big Item Start -->
+    <!-- profile section -->
     <section class="section" id="about">
         <div class="container">
 		
