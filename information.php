@@ -8,6 +8,7 @@
 	<meta name="author" content="Alvin Chua Khai Chuen" />
 	<meta name="keywords" content="ETMP">
 	<link rel="stylesheet" href="style/style.css">
+
 </head>
 	<header>
 	<!--navigation-->
@@ -15,23 +16,23 @@
 
 	</header>
 	<body>
-	
+	<div class="center">
 	<h2>FAQ</h2><br/>
 	<p><b>Q1. How can I register an account?</b></p>
-	<p>Ans. You can register account by click the create account shown in the navigation or let admin help you to register.</p>
+	<p>Ans. You can register account by click the create account shown in the home navigation or let admin help you to register.</p>
 	<br/>
-	
+	<hr/>
 	<p><b>Q2. How can I register training?</b></p>
 	<p>Ans. You will able to register the training after login or register an account and it will appear training search in the navigation.</p>
 	<br/>
-	
+	<hr/>
 	<p><b>Q3. Where can I check my information and registered training?</b></p>
 	<p>Ans. You will need to register an account and then it will shown in the navigation.</p>
 	<br/>
-	
+	<hr/>
 	<p><b>Q4. How can I contact the staff?</b></p>
 	<p>Ans. You can contact staff through live chat but currently there is no staff handles the live chat yet.</p>
 	<br/>
-
+	</div>
 	</body>
 </html>
