@@ -222,11 +222,12 @@ function NameCheck()
 							</style>
 					
 				</div>
-			</form>
-			
 			<div class="center">
 				<button type="submit" class="register_acc" name="add">Add Record</button>
 			</div>
+			</form>
+			
+
 		</div>
 	</section>
 	
