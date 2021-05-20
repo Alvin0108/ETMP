@@ -1,5 +1,5 @@
 <?php
-	if(isset($_POST['search']))
+	if(isset($_POST['registration_search']))
 	{
 		$registration_search = $_POST['registration_search'];
 		$query = "SELECT * FROM `registration` WHERE CONCAT(`training_id`, `training_name`, `register_date`) 
@@ -50,7 +50,6 @@
 		
 		<!-- search field -->
         <form action="searchRegister.php" method="post" class="search">
-			<button type="submit" name="search"><i class="zmdi zmdi-search"></i></button><br><br>
             <input type="text" name="registration_search" placeholder="Search...">
         </form>   
 		
