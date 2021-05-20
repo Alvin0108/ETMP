@@ -213,12 +213,11 @@ function NameCheck()
 						<br>
 						<hr>
 				</div>
-			</form>
 			
 			<div>
 				<button type="submit" class="register_acc" name="add">Add Record</button>
 			</div>
-			
+			</form>
 		</div>
 	</section>
 			
