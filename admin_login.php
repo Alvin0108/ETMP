@@ -50,6 +50,23 @@ if(isset($_POST['login'])) {
 }
 ?>
 
+		<style>
+		.logo{
+			color #1e1e1e !important;
+			line-height: 80px;
+			color: black;
+			font-size: 28px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			float: left;
+			text-decoration: none !important;
+			margin-left: 20%;
+			padding-top: 30px;
+			
+		}
+	</style>
+
 	<form action="admin_login.php" method="post">
 		<div class="main">
 			<!-- admin login form -->
@@ -57,13 +74,14 @@ if(isset($_POST['login'])) {
 				<div class="container">
 					<div class="signin-content">
 						<div class="signin-image">
+							<a href="#" class="logo">Expert.com</a>
 							<figure><img src="images/admin-login.png" alt="sign in image"></figure>
 							<a href="admin_registration.php" class="signup-image-link">Create new admin account</a>
 						</div>
 						
 						<div class="signin-form">
 						
-							<h2 class="form-title">Expert.com <br>Admin Log in</h2>
+							<h2 class="form-title">Admin Log in</h2>
 							
 							<form method="POST" class="register-form" id="login-form">
 							

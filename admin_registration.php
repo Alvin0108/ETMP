@@ -83,6 +83,26 @@ function ConfirmCheck()
 
 ?>
 
+		<style>	
+		.logo{
+			color #1e1e1e !important;
+			line-height: 80px;
+			color: black;
+			font-size: 28px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			float: left;
+			text-decoration: none !important;
+			margin-left: 20%;
+			padding-bottom: 30px;
+			
+		}
+		
+		.signup-image{
+			padding-bottom:20px;
+		}
+	</style>
 	
 	<form action="admin_registration.php" method="post">
 		<div class="main">
@@ -93,7 +113,7 @@ function ConfirmCheck()
 	
 						<div class="signup-form">
 						
-							<h2 class="form-title">Expert.com <br>Admin Sign Up</h2>
+							<h2 class="form-title">Admin Sign Up</h2>
 							
 							<form method="POST" class="register-form" id="register-form">	
 							
@@ -124,6 +144,7 @@ function ConfirmCheck()
 						</div>	
 						
 						<div class="signup-image">
+							<a href="#" class="logo">Expert.com</a>
 							<figure><img src="images/admin-register.png" alt="sign up image"></figure>
 							<a href="admin_login.php" class="signup-image-link">Log in as admin</a>
 						</div>

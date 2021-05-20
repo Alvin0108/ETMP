@@ -94,7 +94,7 @@ function TrainingCheck()
 
 		
 		<hr/>
-		<br/><br/><br/>
+		<br/><br/><br/><br/><br/>
 		<div class="final_confirm">
 			<?php echo $user_training_check . $tname; ?><br/><br/>
 			<?php 

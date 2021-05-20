@@ -84,7 +84,7 @@ $user_ID = $_SESSION["user_id"];
 		<br><br><br><br><br>
 		<!--Search-->
         <form action="search.php" method="post" class="training-search"> 
-            <!--<i class="zmdi zmdi-search"></i>-->
+            <i class="zmdi zmdi-search"></i>
 			<input type="text" name="training_search" placeholder="Search..." value="<?php echo $training_search ?>">
         </form> 
 

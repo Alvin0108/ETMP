@@ -49,12 +49,49 @@ function RVCheck()
 		<meta name="description" content="DP2" />
 		<meta name="keywords" content="PHP" />
 		<meta name="author" content="Tay Yuan Long" />
-		<link rel="stylesheet" href="style/style.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/owl-carousel.css">
+		<!-- font icon -->
+		<link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+		
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
 		<title>Finalize Venue</title>
     </head>
 	
-    <body>   
+    <body>
+
+		<!-- Header Area Start -->
+		<header class="header-area header-sticky">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+					
+						<nav class="main-nav">
+							<!-- Logo Start -->
+							<a href="#" class="logo">Expert.com</a>
+							<!-- Logo End -->
+							
+							<!-- Menu Start -->
+							<ul class="nav">
+								<li class="scroll-to-section"><a href="search.php">Training Search</a></li>
+								<li ><a href="profile.php" >Profile</a></li>
+								<li ><a href="logout.php">Log Out</a></li>
+							</ul>
+							<a class='menu-trigger'>
+								<span>Menu</span>
+							</a>
+							<!-- Menu End -->
+						</nav>
+						
+					</div>
+				</div>
+			</div>
+		</header>
+
+
+	
 			<br/><br/><br/><br/><br/><br/>
 		<div class="final_confirm">
 			<?php echo $rv_check ?><br/><br/>
@@ -64,5 +101,28 @@ function RVCheck()
 		</div>
 		<br/><br/><br/>
 		<hr/>
+		<style>
+			.final_confirm{
+				text-align: center;
+			}
+		</style>
+		
+	<!-- jQuery -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="js/owl-carousel.js"></script>
+    <script src="js/scrollreveal.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imgfix.min.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="js/custom.js"></script>
+		
     </body>
 </html>

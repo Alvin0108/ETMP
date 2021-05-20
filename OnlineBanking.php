@@ -71,6 +71,37 @@ function AmountCheck()
 }
 
 ?>
+
+		<!-- Header Area Start -->
+		<header class="header-area header-sticky">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+					
+						<nav class="main-nav">
+							<!-- Logo Start -->
+							<a href="#" class="logo">Expert.com</a>
+							<!-- Logo End -->
+							
+							<!-- Menu Start -->
+							<ul class="nav">
+								<li class="scroll-to-section"><a href="search.php">Training Search</a></li>
+								<li ><a href="profile.php" >Profile</a></li>
+								<li ><a href="logout.php">Log Out</a></li>
+							</ul>
+							<a class='menu-trigger'>
+								<span>Menu</span>
+							</a>
+							<!-- Menu End -->
+						</nav>
+						
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<br><br>
+
 <form action="payment_success.php" method="post">
 	<section class="section" id="about">
 		<div class="container">
@@ -208,5 +239,23 @@ function AmountCheck()
 			</div>
 		</div>
 	</section>
+	
+	<!-- jQuery -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="js/owl-carousel.js"></script>
+    <script src="js/scrollreveal.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imgfix.min.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="js/custom.js"></script>
+	
 	</body>
 </html>

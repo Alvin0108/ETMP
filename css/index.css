@@ -1450,4 +1450,14 @@ admmin_dashboard.php
 	text-transform: uppercase;
 }
 
+./*
+-------------------------------
+finalize_venue.php
+-------------------------------
+*/
+.final_submit{
+	text-align: center;
+}
+
+
 
