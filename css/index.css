@@ -147,7 +147,7 @@ ul {
 }
 
 p {
-  font-size: 15px;
+  font-size: 18px;
   line-height: 25px;
   color: #4a4a4a;
 }
@@ -1439,3 +1439,15 @@ profile.php
   -o-border-radius: 20px;
   -ms-border-radius: 20px;
 }
+
+./*
+-------------------------------
+admmin_dashboard.php
+-------------------------------
+*/
+.table-p {
+	color:black;
+	text-transform: uppercase;
+}
+
+

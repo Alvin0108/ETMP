@@ -89,7 +89,7 @@ if(isset($_GET['id'])){
 		<style>
 		h2{
 			
-			margin-left:200px;
+			margin-left: 25%;
 		}
 		</style>
 		<br><br>
