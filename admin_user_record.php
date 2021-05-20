@@ -226,11 +226,10 @@ $admin_id = $_SESSION["admin_id"];
 						<br/>
 						<hr>
 				</div>
-			</form>
-			
 			<div class="center">
 				<button type="submit" class="register_acc" name="add">Add Record</button>
 			</div>
+			</form>
 		</div>
 	</section>
 	<br/><br/>
