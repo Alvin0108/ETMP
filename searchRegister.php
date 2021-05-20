@@ -1,4 +1,5 @@
 <?php
+	$registration_search = "";
 	if(isset($_POST['registration_search']))
 	{
 		$registration_search = $_POST['registration_search'];
@@ -50,7 +51,7 @@
 		
 		<!-- search field -->
         <form action="searchRegister.php" method="post" class="search">
-            <input type="text" name="registration_search" placeholder="Search...">
+            <input type="text" name="registration_search" placeholder="Search..." value="<?php echo $registration_search ?>">
         </form>   
 		
 		
