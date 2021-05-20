@@ -51,8 +51,8 @@
 			$email = $_POST["email"];
 			$pass = $_POST["pass"];
 			$pass = hash('sha256',$pass);
-			$pass = $_POST["desc"];
-			$pass = $_POST["gender"];
+			$desc = $_POST["desc"];
+			$gender = $_POST["gender"];
 			// Insert the record
 			$adding= "INSERT INTO users (user_name, user_email, password, description, gender) VALUES 
 			('$name','$email','$pass', '$desc', '$gender');";
