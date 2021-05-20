@@ -9,7 +9,7 @@ $user_ID = $_SESSION["user_id"];
 <?php
 	$training_search = "";
 
-	if(isset($_POST['search']))
+	if(isset($_POST['training_search']))
 	{
 		$training_search = $_POST['training_search'];
 		$query = "SELECT * FROM `training` WHERE CONCAT(`training_id`, `training_name`, `training_fee`,`start_date`,`end_date`,`mode`) 
@@ -84,7 +84,6 @@ $user_ID = $_SESSION["user_id"];
 		<br><br><br><br><br>
 		<!--Search-->
         <form action="search.php" method="post" class="training-search"> 
-            <i class="zmdi zmdi-search"></i>
 			<input type="text" name="training_search" placeholder="Search..." value="<?php echo $training_search ?>">
         </form> 
 
