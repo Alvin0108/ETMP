@@ -43,7 +43,7 @@ if(isset($_POST["add"])) {
 	if($nameer=="" ) {
 		$filename = $_FILES["uploadfile"]["name"];
 		$tempname = $_FILES["uploadfile"]["tmp_name"];    
-		$folder = "image/".$filename;
+		$folder = "images/".$filename;
 		
 		// Select file type
 		$imageFileType = strtolower(pathinfo($filename,PATHINFO_EXTENSION));
