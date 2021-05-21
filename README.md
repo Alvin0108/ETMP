@@ -10,7 +10,7 @@ To get started with the website.
 	a)First - to setup database (important)
 	- localhost/ETMP/home.php (to obtain the database and also able to access to user view and admin view)
 	
-	b)After complete step a)
+	b)After complete step setup the database
 		User side
 		- localhost/ETMP/index.html	
 		Admin side
