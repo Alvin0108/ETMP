@@ -7,10 +7,10 @@ To get started with the website.
 3. Move the ETMP folder into htdocs folder in xampp folder
 
 4. To run the website 
-	a)First - to setup database (important)
+	a. First - to setup database (important)
 	- localhost/ETMP/home.php (to obtain the database and also able to access to user view and admin view)
 	
-	b)After complete step setup the database
+	b. After complete step setup the database
 		User side
 		- localhost/ETMP/index.html	
 		Admin side
