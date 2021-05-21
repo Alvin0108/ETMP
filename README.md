@@ -11,8 +11,7 @@ To get started with the website.
 	- localhost/ETMP/home.php (to obtain the database and also able to access to user view and admin view)
 	
 	b)After complete step a)
-		1)user side
-		- localhost/ETMP/index.html
-		
-		2)admin side
+		i)user side
+		- localhost/ETMP/index.html	
+		ii)admin side
 		- localhost/ETMP/admin_login.php
