@@ -121,13 +121,13 @@ function AmountCheck()
 						<input type="radio" name="bank_name" value="CIMB" required>CIMB</input>
 		
 						<br><br><label for="accno"><b>Bank Account</b></label>
-						<input type="accno" placeholder="Enter Bank Account" name="accno" id="accno" required><span style="color:red"><?php echo $accnoc ?></span><br>
+						<input type="number" placeholder="Enter Bank Account" name="accno" id="accno" required><span style="color:red"><?php echo $accnoc ?></span><br>
 	
 						<label for="name"><b>Name</b></label>
-						<input type="name" placeholder="Enter name" name="name" id="name" required><span style="color:red"><?php echo $namec ?></span><br>
+						<input type="type" placeholder="Enter name" name="name" id="name" required><span style="color:red"><?php echo $namec ?></span><br>
 
 						<label for="amount"><b>Amount</b></label>
-						<input type="amount" placeholder="Enter Amount(RM)" name="amount" id="amount" required><span style="color:red"><?php echo $amountc ?></span><br>
+						<input type="number" placeholder="Enter Amount(RM)" name="amount" id="amount" required><span style="color:red"><?php echo $amountc ?></span><br>
 					</fieldset>
 					<style>
 							.continuebtn{
