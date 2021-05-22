@@ -1,6 +1,6 @@
 ETMP
 To get started with the website.
-1. Git clone the repo link into git bash : https://github.com/Alvin0108/ETMP.git
+1. Git clone the repo link into git bash : git clone https://github.com/Alvin0108/ETMP.git
 
 2. Make sure MySQL and Apache is on at XAMPP control
 
